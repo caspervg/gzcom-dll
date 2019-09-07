@@ -1,6 +1,5 @@
 #pragma once
 #include "cIGZUnknown.h"
-#include "cISC4ViewInputControl.h"
 
 class cIGZCommandParameterSet;
 class cIGZString;
@@ -12,12 +11,12 @@ class cS3DVector3;
 class cSC4ViewFilterInformation;
 class cSC4ViewLevelInformation;
 class cISC4CatalogView;
+class cISC4ViewInputControl;
+class CatalogState;
 
 class cISC4View3DWin : public cIGZUnknown
 {
 	public:
-
-		class CatalogState : public cIGZUnknown {};
 
 		virtual cIGZWin* AsIGZWin(void) = 0;
 
@@ -73,6 +72,7 @@ class cISC4View3DWin : public cIGZUnknown
 		virtual bool SetCostIndicator(uint32_t) = 0;
 		virtual bool SetCostIndicator(uint32_t, uint32_t) = 0;
 		virtual bool ClearCostIndicator(bool) = 0;
+		virtual bool RenderCostIndicator(void) = 0;
 
 		virtual bool SetErrorReportString(char const*) = 0;
 		virtual int32_t GetGlobalEffectTriggerState(uint32_t) = 0;
@@ -89,6 +89,8 @@ class cISC4View3DWin : public cIGZUnknown
 		virtual bool SetLastSelectedLot(uint32_t) = 0;
 
 		virtual bool MinimizeUI(bool) = 0;
+		virtual int RemoveGUI(void) = 0;
+		virtual int DoBudgetFailure(void) = 0;
 
 		virtual bool ShowMissionStatusPanel(uint32_t) = 0;
 		virtual bool HideMissionStatusPanel(void) = 0;
@@ -97,16 +99,18 @@ class cISC4View3DWin : public cIGZUnknown
 		virtual bool CloseSecondaryMenu(void) = 0;
 		virtual void CloseTertiaryMenu(void) = 0;
 
-		virtual bool InvokeDisaster(uint32_t dwDisasterID) = 0;
-		virtual bool InvokeZoningTool(uint32_t dwZoneID) = 0;
-		virtual bool InvokeCatalogItemCommand(uint32_t dwGroupID, uint32_t dwInstanceID, bool bUnknown) = 0;
-		virtual bool InvokeTertiaryMenu(uint32_t dwUnknown1, cIGZWin* pWindow, uint32_t dwUnknown2, cISC4CatalogView* pCatalogView, uint32_t dwUnknown3, CatalogState* pCatalogState) = 0;
-		virtual bool InvokeTertiaryMenu(uint32_t dwUnknown1, uint32_t dwUnknown2, cIGZWin* pWindow, uint32_t dwUnknown3, int32_t nUnknown4) = 0;
+		virtual int InvokeDisaster(uint32_t dwDisasterID) = 0;
+		// 0xa9de8784 = Torch?
 
-		virtual bool InvokeSecondaryMenu(uint32_t dwUnknown1, cIGZWin* pWindow, uint32_t dwUnknown2, cISC4CatalogView* pCatalogView, uint32_t dwUnknown3, CatalogState* pCatalogState) = 0;
-		virtual bool InvokeSecondaryMenu(uint32_t dwUnknown1, uint32_t dwUnknown2, cIGZWin* pWindow, uint32_t dwUnknown3, int32_t nUnknown4) = 0;
+		virtual int InvokeZoningTool(uint32_t dwZoneID) = 0;
+		virtual int InvokeCatalogItemCommand(uint32_t dwGroupID, uint32_t dwInstanceID, bool bUnknown) = 0;
+		virtual int InvokeTertiaryMenu(uint32_t dwUnknown1, cIGZWin* pWindow, uint32_t dwUnknown2, cISC4CatalogView* pCatalogView, uint32_t dwUnknown3, CatalogState* pCatalogState) = 0;
+		virtual int InvokeTertiaryMenu(uint32_t dwUnknown1, uint32_t dwUnknown2, cIGZWin* pWindow, uint32_t dwUnknown3, int32_t nUnknown4) = 0;
 
-		virtual bool InvokeLandscapeTool(uint32_t dwLandscapeToolID, bool bUnknown) = 0;
+		virtual int InvokeSecondaryMenu(uint32_t dwUnknown1, cIGZWin* pWindow, uint32_t dwUnknown2, cISC4CatalogView* pCatalogView, uint32_t dwUnknown3, CatalogState* pCatalogState) = 0;
+		virtual int InvokeSecondaryMenu(uint32_t dwUnknown1, uint32_t dwUnknown2, cIGZWin* pWindow, uint32_t dwUnknown3, int32_t nUnknown4) = 0;
+
+		virtual int InvokeLandscapeTool(uint32_t dwLandscapeToolID, bool bUnknown) = 0;
 
 		// dwGroupID 0x8c329937 for Network?
 		// dwGroupID 0x6a470000 for NetworkIntx
