@@ -1,0 +1,131 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/gzcom2Targets.cmake")
+
+# Consumers can use: find_package(gzcom2 CONFIG REQUIRED)
+# Provides target: gzcom2::gzcom2
+# CMake build script for the gzcom2 static (or shared) library.
+# This attempts to mirror settings from gzcom2.vcxproj.
+
+set(TARGET_NAME gzcom2)
+
+# Gather headers and sources explicitly (mirroring the .vcxproj lists).
+file(GLOB_RECURSE GZCOM_PUBLIC_HEADERS
+    CONFIGURE_DEPENDS
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h
+)
+set(GZCOM_SOURCES
+    src/cGZCityHallUpgradeDllDirector.cpp
+    src/cGZExampleDllDirector.cpp
+    src/cGZExtraCheatsDllDirector.cpp
+    src/cGZExtraExtraCheatsDllDirector.cpp
+    src/cRZBaseString.cpp
+    src/cRZBaseSystemService.cpp
+    src/cRZBaseUnknown.cpp
+    src/cRZBaseVariant.cpp
+    src/cRZBaseWinProc.cpp
+    src/cRZCellMap.cpp
+    src/cRZCOMDllDirector.cpp
+    src/cGZCustomDllDirector.cpp
+    src/cRZMessage2.cpp
+    src/cRZMessage2Standard.cpp
+    src/cS3DVector2.cpp
+    src/cS3DVector3.cpp
+    src/cSC4BaseOccupantFilter.cpp
+    src/cSC4BaseViewInputControl.cpp
+    src/cSCBaseProperty.cpp
+    src/PersistResourceKeyFilterBase.cpp
+    src/PersistResourceKeyFilterByType.cpp
+    src/PersistResourceKeyFilterByTypeAndGroup.cpp
+    src/SC4UI.cpp
+    src/SCLuaUtil.cpp
+    src/SCPropertyUtil.cpp
+    src/StringResourceManager.cpp
+)
+
+if(GZCOM_INCLUDE_SAMPLE_DIRECTOR)
+    list(APPEND GZCOM_SOURCES src/main.cpp)
+endif()
+
+# Create either static or shared library.
+if(GZCOM_BUILD_SHARED)
+    add_library(${TARGET_NAME} SHARED ${GZCOM_SOURCES} ${GZCOM_PUBLIC_HEADERS})
+    target_compile_definitions(${TARGET_NAME} PRIVATE GZCOM2_EXPORTS)
+else()
+    add_library(${TARGET_NAME} STATIC ${GZCOM_SOURCES} ${GZCOM_PUBLIC_HEADERS})
+endif()
+
+# Define include directories (public so consumers inherit them).
+# Use BUILD_INTERFACE/INSTALL_INTERFACE for proper exporting when installed.
+
+target_include_directories(${TARGET_NAME}
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+)
+
+# Language standard (C++20) and warning level similar to /W3.
+set_target_properties(${TARGET_NAME} PROPERTIES
+    CXX_STANDARD 20
+    CXX_STANDARD_REQUIRED ON
+    CXX_EXTENSIONS OFF
+)
+
+# MSVC-specific flags to mirror optimization and runtime library choices.
+if(MSVC)
+    # Equivalent to _CRT_SECURE_NO_WARNINGS
+    target_compile_definitions(${TARGET_NAME} PRIVATE _CRT_SECURE_NO_WARNINGS)
+
+    # Match /W3
+    target_compile_options(${TARGET_NAME} PRIVATE /W3)
+
+    # Configuration-specific flags.
+    target_compile_options(${TARGET_NAME} PRIVATE
+        $<$<CONFIG:Release>:/O2 /Oi /Gy>
+        $<$<CONFIG:Debug>:/Od>
+    )
+    # Enable function level linking and COMDAT folding in Release (/Gy and /OPT:ICF, /OPT:REF already partly from /O2).
+    if(GZCOM_BUILD_SHARED)
+        # When building a DLL you may want to set /MD or /MDd; but original project used MultiThreaded(/MT) or MultiThreadedDebug (/MTd)
+    endif()
+
+    # Runtime library: replicate /MT vs /MTd if desired. CMake 3.15+ has MSVC_RUNTIME_LIBRARY.
+    if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.15)
+        set_target_properties(${TARGET_NAME} PROPERTIES
+            MSVC_RUNTIME_LIBRARY $<$<CONFIG:Debug>:MultiThreadedDebug>$<$<CONFIG:Release>:MultiThreaded>
+        )
+    endif()
+endif()
+
+# Organize headers into an IDE folder for clarity (optional).
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/include PREFIX "Header Files" FILES ${GZCOM_PUBLIC_HEADERS})
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/src PREFIX "Source Files" FILES ${GZCOM_SOURCES})
+
+# Installation rules (optional)
+install(TARGETS ${TARGET_NAME}
+    EXPORT gzcom2Targets
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION include)
+
+# Export configuration for find_package with build directory usage.
+export(EXPORT gzcom2Targets FILE ${CMAKE_CURRENT_BINARY_DIR}/gzcom2Targets.cmake NAMESPACE gzcom2::)
+install(EXPORT gzcom2Targets FILE gzcom2Targets.cmake NAMESPACE gzcom2:: DESTINATION lib/cmake/gzcom2)
+
+# Generate a basic package config file when installing (simple approach).
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    ${CMAKE_CURRENT_BINARY_DIR}/gzcom2ConfigVersion.cmake
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY SameMajorVersion
+)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/../cmake/gzcom2Config.cmake.in
+               ${CMAKE_CURRENT_BINARY_DIR}/gzcom2Config.cmake @ONLY)
+install(FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/gzcom2Config.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/gzcom2ConfigVersion.cmake
+    DESTINATION lib/cmake/gzcom2
+)
+
