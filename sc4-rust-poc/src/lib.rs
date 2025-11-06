@@ -49,13 +49,18 @@
 
 pub mod base_types;
 pub mod string_types;
+pub mod string_types_v2;
 pub mod city_ffi;
 pub mod city_safe;
+pub mod director_ffi;
+pub mod director;
 
 // Re-export commonly used types for convenience
 pub use city_safe::{City, CityError, WorldPosition, CellCoord, CitySize, DifficultyLevel};
 pub use base_types::{IGZUnknown, GZIID_IGZUNKNOWN};
 pub use city_ffi::{ISC4City, GZIID_ISC4CITY};
+pub use director::{DirectorHooks, RustDirector};
+pub use director_ffi::{IGZCOMDirector, IGZCOM, IGZFrameWork};
 
 use std::ffi::c_void;
 
