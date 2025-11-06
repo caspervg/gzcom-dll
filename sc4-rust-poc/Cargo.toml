@@ -1,0 +1,19 @@
+[package]
+name = "sc4-rust-poc"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+
+[build-dependencies]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+
+# Target i686-pc-windows-msvc for SimCity 4 (32-bit)
+# Build with: cargo build --target i686-pc-windows-msvc
