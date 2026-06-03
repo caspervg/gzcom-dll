@@ -48,7 +48,7 @@ public:
 	virtual void SetDefaultGroupId(uint32_t groupId) = 0;
 	virtual uint32_t GroupId() const = 0;
 
-	virtual void* ExtensionMap() = 0;
+	virtual cIGZPersistRESIDtoExtensionMap* ExtensionMap() = 0;
 	virtual bool GetRESIDtoExtensionMap(cIGZPersistRESIDtoExtensionMap** ppMap) = 0;
 	virtual bool AddExtensionAssociation(uint32_t typeId, cIGZString const& extension) = 0;
 
