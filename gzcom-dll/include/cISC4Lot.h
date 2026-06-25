@@ -133,7 +133,7 @@ class cISC4Lot : public cIGZUnknown
 		virtual bool SetBuildingType(uint32_t dwBuildingType) = 0;
 
 		virtual cISC4BuildingOccupant* GetBuilding(void) const = 0;
-		virtual bool GetLotOccupants(SC4List<cISC4Occupant*>& sOccupants) const = 0;
+		virtual void GetLotOccupants(SC4List<cISC4Occupant*>& sOccupants) const = 0;
 
 		virtual uint16_t GetCapacity(cISC4BuildingOccupant::WealthType eWealthType) const = 0;
 		virtual uint16_t GetCapacity(cISC4BuildingDevelopmentSimulator::DeveloperType eDeveloperType, bool bForceCalculation) const = 0;
