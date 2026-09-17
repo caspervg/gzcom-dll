@@ -21,14 +21,19 @@
  */
 
 #include "cSC4BaseViewInputControl.h"
+#include "cIGZCanvas.h"
 #include "cIGZCursorManager.h"
+#include "cIGZKeyboard.h"
 #include "GZServPtrs.h"
 #include "SC4UI.h"
+#include <windowsx.h>
 
 cSC4BaseViewInputControl::cSC4BaseViewInputControl(uint32_t controlID)
 	: initialized(false),
-	  cursorID(0),
-	  id(controlID)
+	  middleMouseDown(false),
+	  winProcFilterRegistered(false),
+	  id(controlID),
+	  cursorID(0)
 {
 }
 
@@ -67,6 +72,15 @@ bool cSC4BaseViewInputControl::Init()
 
 			if (localView3D)
 			{
+				cIGZCanvas* canvas = localWindowManager->GetCanvas();
+
+				if (canvas && canvas->QueryInterface(GZIID_cIGZCanvasW32, canvasW32.AsPPVoid()))
+				{
+					winProcFilterRegistered = canvasW32->AddWinProcFilter(
+						static_cast<cIGZWinProcFilterW32*>(this),
+						true);
+				}
+
 				if (!cursor && cursorID != 0)
 				{
 					cIGZCursorManager* pCursorManager = localWindowManager->GetCursorManager();
@@ -101,6 +115,14 @@ bool cSC4BaseViewInputControl::Shutdown()
 {
 	if (initialized)
 	{
+		if (winProcFilterRegistered && canvasW32)
+		{
+			canvasW32->AddWinProcFilter(static_cast<cIGZWinProcFilterW32*>(this), false);
+		}
+
+		winProcFilterRegistered = false;
+		middleMouseDown = false;
+		canvasW32.Reset();
 		cursor.Reset();
 		window.Reset();
 		windowManager.Reset();
@@ -126,11 +148,11 @@ cIGZCursor* cSC4BaseViewInputControl::GetCursor()
 	return cursor;
 }
 
-void cSC4BaseViewInputControl::SetCursor(cIGZCursor* pIGZCursor)
+void cSC4BaseViewInputControl::SetCursor(cIGZCursor* pIGZursor)
 {
-	if (this->cursor != pIGZCursor)
+	if (this->cursor != cursor)
 	{
-		this->cursor = pIGZCursor;
+		this->cursor = cursor;
 
 		if (cursor && initialized && window)
 		{
@@ -141,7 +163,7 @@ void cSC4BaseViewInputControl::SetCursor(cIGZCursor* pIGZCursor)
 
 void cSC4BaseViewInputControl::SetCursor(uint32_t cursorID)
 {
-	if (cursorID != 0)
+	if (cursor != 0)
 	{
 		cIGZWinMgrPtr localWindowManager;
 
@@ -213,6 +235,16 @@ bool cSC4BaseViewInputControl::OnMouseUpR(int32_t x, int32_t z, uint32_t modifie
 	return false;
 }
 
+bool cSC4BaseViewInputControl::OnMouseDownM(int32_t x, int32_t z, uint32_t modifiers)
+{
+	return false;
+}
+
+bool cSC4BaseViewInputControl::OnMouseUpM(int32_t x, int32_t z, uint32_t modifiers)
+{
+	return false;
+}
+
 bool cSC4BaseViewInputControl::OnMouseMove(int32_t x, int32_t z, uint32_t modifiers)
 {
 	return false;
@@ -234,6 +266,7 @@ void cSC4BaseViewInputControl::Activate()
 
 void cSC4BaseViewInputControl::Deactivate()
 {
+	middleMouseDown = false;
 }
 
 bool cSC4BaseViewInputControl::AmCapturing()
@@ -292,4 +325,90 @@ bool cSC4BaseViewInputControl::SetCapture()
 	}
 
 	return result;
+}
+
+bool cSC4BaseViewInputControl::IsMiddleMouseDown() const
+{
+	return middleMouseDown;
+}
+
+LRESULT cSC4BaseViewInputControl::FilterMessage(
+	HWND hWnd,
+	UINT uMsg,
+	WPARAM wParam,
+	LPARAM lParam,
+	bool& handled)
+{
+	(void)wParam;
+
+	if (uMsg == WM_CANCELMODE || uMsg == WM_CAPTURECHANGED || uMsg == WM_KILLFOCUS)
+	{
+		middleMouseDown = false;
+		return 0;
+	}
+
+	const bool isMiddleButtonDownMessage =
+		uMsg == WM_MBUTTONDOWN || uMsg == WM_MBUTTONDBLCLK;
+	const bool isMiddleButtonUpMessage = uMsg == WM_MBUTTONUP;
+
+	if (!isMiddleButtonDownMessage && !isMiddleButtonUpMessage)
+	{
+		return 0;
+	}
+
+	// Always clear the state on button-up, even if this control stopped being
+	// the top control while the button was held.
+	if (isMiddleButtonUpMessage)
+	{
+		middleMouseDown = false;
+	}
+
+	if (!initialized || !window || !IsOnTop())
+	{
+		return 0;
+	}
+
+	int32_t x = GET_X_LPARAM(lParam);
+	int32_t z = GET_Y_LPARAM(lParam);
+	POINT point = { x, z };
+
+	if (!ClientToScreen(hWnd, &point))
+	{
+		return 0;
+	}
+
+	x = point.x;
+	z = point.y;
+
+	if (!window->ScreenToWindowCoordinates(x, z))
+	{
+		return 0;
+	}
+
+	uint32_t modifiers = 0;
+	cIGZKeyboard* keyboard = windowManager ? windowManager->GetKeyboard() : nullptr;
+
+	if (keyboard)
+	{
+		modifiers = keyboard->GetCurrentModifierState();
+	}
+
+	bool eventHandled = false;
+
+	if (isMiddleButtonDownMessage)
+	{
+		middleMouseDown = true;
+		eventHandled = OnMouseDownM(x, z, modifiers);
+	}
+	else
+	{
+		eventHandled = OnMouseUpM(x, z, modifiers);
+	}
+
+	if (eventHandled)
+	{
+		handled = true;
+	}
+
+	return 0;
 }
