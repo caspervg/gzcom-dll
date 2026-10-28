@@ -1,0 +1,33 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00acce48	0	0x008f687d	cGZWWWSystem	QueryInterface	bool	uint32_t riid|void** ppvObj	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	1	0x008f68c6	cGZWWWSystem	AddRef	uint32_t		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	2	0x009cc22d	cGZWWWSystem	Release	uint32_t		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	3	0x008f68f1	cGZWWWSystem	Init	bool		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	4	0x008f692a	cGZWWWSystem	Shutdown	bool		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	5	0x008f68fe	cGZWWWSystem	PostInit	bool		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	6	0x008f69e5	cGZWWWSystem	SetDefaultNotificationTarget	void	cIGZMessageTarget2* pTarget	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	7	0x009db800	cGZWWWSystem	GetDefaultNotificationTarget	cIGZMessageTarget2*		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	8	0x0097b497	cGZWWWSystem	SetDefaultCustomData	void	void* pData	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	9	0x00999165	cGZWWWSystem	GetDefaultCustomData	void*		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	10	0x008f696b	cGZWWWSystem	GetCacheDirectory	bool	SC4String& directoryOut	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	11	0x008f7966	cGZWWWSystem	SetCacheDirectory	bool	SC4String const& directory	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	12	0x008f6973	cGZWWWSystem	SetCookieUsage	void	bool useCookies	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	13	0x0097e89e	cGZWWWSystem	GetCookieUsage	bool		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	14	0x008f6981	cGZWWWSystem	SetCacheUsage	void	bool useCache	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	15	0x008f697d	cGZWWWSystem	GetCacheUsage	bool		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	16	0x008f833d	cGZWWWSystem	LoadDocument	uint32_t	cRZURL&|cIGZMessageTarget2*|cIGZWWWSystem::RAMDataPreference@4|void*|bool	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	17	0x008f72b5	cGZWWWSystem	LoadDocument	uint32_t	SC4String const&|cIGZMessageTarget2*|cIGZWWWSystem::RAMDataPreference@4|void*|bool	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	18	0x008f6d08	cGZWWWSystem	GetDocumentLoadStatus	uint32_t	uint32_t jobID	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	19	0x008f6d59	cGZWWWSystem	GetJob	cIGZWWWSystem::Job*	uint32_t jobID	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	20	0x008f6a0c	cGZWWWSystem	HTTPClientJobIDFromWWWSystemJobID	uint32_t	uint32_t jobID	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	21	0x008f6a30	cGZWWWSystem	FTPClientJobIDFromWWWSystemJobID	uint32_t	uint32_t jobID	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	22	0x008f7e76	cGZWWWSystem	CancelDocumentLoadRequest	bool	uint32_t jobID	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	23	0x008f7f04	cGZWWWSystem	CancelAllDocumentLoadRequests	uint32_t		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	24	0x008f6a4d	cGZWWWSystem	IsVisitedURL	bool	SC4String const& url	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	25	0x008f708a	cGZWWWSystem	AddURLHandler	bool	cIGZWWWSystemURLHandler* pHandler	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	26	0x008f6e2b	cGZWWWSystem	RemoveURLHandler	void	cIGZWWWSystemURLHandler* pHandler	cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	27	0x008f6cd6	cGZWWWSystem	RemoveAllURLHandlers	void		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	28	0x0099be4c	cGZWWWSystem	GetHTTPClient	cRZHTTPClient*		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	29	0x009d41a1	cGZWWWSystem	GetFTPClient	void*		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	30	0x0099b7ee	cGZWWWSystem	GetNetworkFileCache	NetworkFileCache*		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4
+0x00acce48	31	0x009d41a5	cGZWWWSystem	GetCookieManager	cRZCookieManager*		cIGZWWWSystem	re/vtables/cIGZWWWSystem.yaml	4

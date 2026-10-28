@@ -1,0 +1,34 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00a95d90	0	0x00514f60	cSC4AutomataController	QueryInterface	bool	uint32_t riid|void** ppvObj	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	1	0x008ae800	cSC4AutomataController	AddRef	uint32_t		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	2	0x00517f10	cSC4AutomataController	Release	uint32_t		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	3	0x00516850	cSC4AutomataController	Init	bool		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	4	0x005169f0	cSC4AutomataController	Shutdown	bool		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	6	0x00517f70	cSC4AutomataController	GetOccupant	cISC4Occupant*		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	7	0x00517df0	cSC4AutomataController	GetTemplateName	cIGZString const&		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	8	0x0040ce60	cSC4AutomataController	GetTemplate	tControllerTemplate const*		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	9	0x00517e00	cSC4AutomataController	GetRadius	float		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	10	0x00517e20	cSC4AutomataController	IsActive	bool		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	11	0x00515a40	cSC4AutomataController	GetPosition	void	float* position	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	12	0x00517e60	cSC4AutomataController	CheckFlag	bool	cISC4AutomataController::tControllerFlag flag@4	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	13	0x00517e70	cSC4AutomataController	SetFlag	void	cISC4AutomataController::tControllerFlag flag@4|bool value	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	14	0x00517f40	cSC4AutomataController	SetOccupant	void	cISC4Occupant* occupant	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	15	0x00517430	cSC4AutomataController	SetTemplate	void	tControllerTemplate const* controllerTemplate	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	17	0x00602f90	cSC4AutomataController	SetPosition	void	float const* position	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	18	0x00516aa0	cSC4AutomataController	Activate	void	bool active	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	19	0x00517ef0	cSC4AutomataController	SetLifetime	void	float lifetime	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	20	0x00516ec0	cSC4AutomataController	GetOccupantBoundingBox	void	float* min|float* max	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	21	0x00515bd0	cSC4AutomataController	GetBoundingBox	void	float* min|float* max	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	22	0x00516c40	cSC4AutomataController	GetLotFacingPoint	void	float* point	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	23	0x00515a80	cSC4AutomataController	IsPointWithinRadius	bool	float const* point|float* distance	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	24	0x006f7dc0	cSC4AutomataController	CheckTimeOfDay	void	tControllerTime const& start|tControllerTime const& end	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	25	0x00516b40	cSC4AutomataController	CheckEffectTriggers	void		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	26	0x00514e30	cSC4AutomataController	NotifySourceDataChanged	void		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	27	0x00515870	cSC4AutomataController	HandleViewChanged	bool		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	28	0x0051bb60	cSC4AutomataController	HandleStateTick	bool	cISC4Automaton* automaton|uint32_t state|float elapsed	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	29	0x0051bca0	cSC4AutomataController	HandleEnterState	bool	cISC4Automaton* automaton|uint32_t state	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	30	0x0051bce0	cSC4AutomataController	HandleExitState	bool	cISC4Automaton* automaton|uint32_t state	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	31	0x0051bd50	cSC4AutomataController	HandleRemoveAutomaton	bool	cISC4Automaton* automaton	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	32	0x0051bab0	cSC4AutomataController	GetBehaviorTemplate	tBehaviorTemplate const*	float distance|cS3DVector3 const& position	cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	33	0x00517ed0	cSC4AutomataController	IsFull	bool		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0
+0x00a95d90	34	0x00477810	cSC4AutomataController	TractRect	SC4Rect<uint8_t>&		cISC4AutomataController	re/vtables/cISC4AutomataController.yaml	0

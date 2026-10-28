@@ -1,0 +1,12 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00aad9d8	0	0x00667860	cSCExemplarCache	QueryInterface	bool	uint32_t riid|void** ppvObj	cISCExemplarCache	re/vtables/cISCExemplarCache.yaml	28
+0x00aad9d8	1	0x006688d0	cSCExemplarCache	AddRef	uint32_t		cISCExemplarCache	re/vtables/cISCExemplarCache.yaml	28
+0x00aad9d8	3	0x006683b0	cSCExemplarCache	AddExemplar	bool	cISCResExemplar* exemplar|bool notify	cISCExemplarCache	re/vtables/cISCExemplarCache.yaml	28
+0x00aad9d8	4	0x00668d70	cSCExemplarCache	RemoveExemplar	bool	cISCResExemplar* exemplar|bool notify	cISCExemplarCache	re/vtables/cISCExemplarCache.yaml	28
+0x00aad9d8	5	0x00668480	cSCExemplarCache	AddCohort	bool	cISCResExemplarCohort* cohort	cISCExemplarCache	re/vtables/cISCExemplarCache.yaml	28
+0x00aad9d8	6	0x00668e20	cSCExemplarCache	RemoveCohort	bool	cISCResExemplarCohort* cohort|bool notify	cISCExemplarCache	re/vtables/cISCExemplarCache.yaml	28
+0x00aad9d8	7	0x00668ff0	cSCExemplarCache	PerformQuery	bool	cISCExemplarCacheQueryDef* queryDef|cIGZUnknownList** results	cISCExemplarCache	re/vtables/cISCExemplarCache.yaml	28
+0x00aad9d8	8	0x006690d0	cSCExemplarCache	RegisterRetainedQuery	bool	cISCExemplarCacheQueryDef* queryDef	cISCExemplarCache	re/vtables/cISCExemplarCache.yaml	28
+0x00aad9d8	9	0x00668530	cSCExemplarCache	UnregisterRetainedQuery	bool	uint32_t queryId	cISCExemplarCache	re/vtables/cISCExemplarCache.yaml	28
+0x00aad9d8	10	0x00668120	cSCExemplarCache	PerformRetainedQuery	bool	uint32_t queryId	cISCExemplarCache	re/vtables/cISCExemplarCache.yaml	28
+0x00aad9d8	11	0x00668190	cSCExemplarCache	GetRetainedQueryResult	bool	uint32_t queryId|cIGZUnknownList** results	cISCExemplarCache	re/vtables/cISCExemplarCache.yaml	28

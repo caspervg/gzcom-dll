@@ -1,0 +1,18 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00aa9140	0	0x00644f40	cSC4NetworkToolUI	QueryInterface	bool	uint32_t riid|void** ppvObj	cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	1	0x00968b60	cSC4NetworkToolUI	AddRef	uint32_t		cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	2	0x0090d96b	cSC4NetworkToolUI	Release	uint32_t		cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	3	0x00645a90	cSC4NetworkToolUI	Shutdown	bool		cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	4	0x006452e0	cSC4NetworkToolUI	ViewInputControlId	uint32_t		cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	5	0x006452f0	cSC4NetworkToolUI	CursorId	uint32_t		cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	6	0x00645300	cSC4NetworkToolUI	PenWidth	void	int32_t& widthX|int32_t& widthZ	cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	7	0x00645310	cSC4NetworkToolUI	EnterUI	void		cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	8	0x00645340	cSC4NetworkToolUI	LeaveUI	void		cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	9	0x00645f50	cSC4NetworkToolUI	OnMouseDownL	bool	int32_t x|int32_t z|uint32_t modifiers	cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	10	0x00646d00	cSC4NetworkToolUI	OnMouseUpL	bool	int32_t x|int32_t z|uint32_t modifiers	cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	11	0x00646ac0	cSC4NetworkToolUI	OnMouseMove	bool	int32_t x|int32_t z|uint32_t modifiers	cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	12	0x00645570	cSC4NetworkToolUI	CancelInput	void		cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	13	0x00644fc0	cSC4NetworkToolUI	IsActive	bool		cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	14	0x006457b0	cSC4NetworkToolUI	DirectionalCursorBase	uint32_t		cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	15	0x00645be0	cSC4NetworkToolUI	LastDragDirection	int32_t		cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0
+0x00aa9140	16	0x006457c0	cSC4NetworkToolUI	AttachToView	void	cISC4View3DWin* view	cISC4NetworkToolUI	re/vtables/cISC4NetworkToolUI.yaml	0

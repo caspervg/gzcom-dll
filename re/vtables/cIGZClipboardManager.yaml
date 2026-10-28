@@ -1,0 +1,461 @@
+# Layout spec. Machine fields are rewritten by `vtables.py align`.
+# Put corrections in a slot's `human:` map, which align keeps.
+interface: cIGZClipboardManager
+gziid: '0x07ec0010'
+base: cIGZUnknown
+base_slots: 3
+extent:
+  win: 21
+  win_source: pure-table
+  win_run: 21
+  mac: 21
+mac:
+  program: /Mac OS X/OldMacVersions/MacOS_x86-32-cpu0x3
+  vtable: '0x00ac3ec0'
+  implementers:
+  - class: cGZClipboardManager
+    base_offset: 0
+win:
+  program: /Windows/WINDOWS_SimCity 4.exe
+  qi: '0x0092254e'
+  vftable: '0x00acfee0'
+  adjust: 0
+  pure_table: '0x00acfde8'
+notes:
+- 'overload group RemoveClipboard: no evidence separates the orders, review'
+slots:
+- win: 0
+  mac: 0
+  origin: both
+  name: QueryInterface
+  params:
+  - uint32_t
+  - void**
+  const: false
+  returns: null
+  ret_guess: bool
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 274444
+  win_impl: 9577806
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+- win: 1
+  mac: 1
+  origin: both
+  name: AddRef
+  params: []
+  const: false
+  returns: null
+  ret_guess: int
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 274580
+  win_impl: 9577884
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+- win: 2
+  mac: 2
+  origin: both
+  name: Release
+  params: []
+  const: false
+  returns: null
+  ret_guess: int
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 272684
+  win_impl: 9578255
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+- win: 3
+  mac: 3
+  origin: both
+  name: Init
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 274146
+  win_impl: 9581415
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+- win: 4
+  mac: 4
+  origin: both
+  name: Shutdown
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 274336
+  win_impl: 9577754
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+- win: 5
+  mac: 5
+  origin: both
+  name: GetClipboardCount
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 274646
+  win_impl: 9578489
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: uint32_t
+- win: 6
+  mac: 6
+  origin: both
+  name: GetClipboard
+  params:
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 274704
+  win_impl: 9580712
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: cIGZClipboard*
+- win: 7
+  mac: 7
+  origin: both
+  name: GetClipboards
+  params:
+  - cIGZClipboard**
+  - uint32_t&
+  const: false
+  returns: null
+  ret_guess: uint
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 274792
+  win_impl: 9578868
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: uint32_t
+- win: 8
+  mac: 8
+  origin: both
+  name: AddClipboard
+  params:
+  - cIGZClipboard*
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 274964
+  win_impl: 9581532
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+- win: 9
+  mac: 10
+  origin: both
+  name: RemoveClipboard
+  params:
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 275270
+  win_impl: 9580879
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: review
+  human:
+    returns: bool
+    status: confirmed
+    note: Win 0092314f special-cases 0xffffffff (remove all) like the Mac uint32_t overload, 009230e4 walks the map comparing
+      pointers like the cIGZClipboard* one
+- win: 10
+  mac: 9
+  origin: both
+  name: RemoveClipboard
+  params:
+  - cIGZClipboard*
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 275114
+  win_impl: 9580772
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: review
+  human:
+    returns: bool
+    status: confirmed
+    note: Win 009230e4 matches the Mac pointer overload (pointer compare loop, no 0xffffffff case)
+- win: 11
+  mac: 11
+  origin: both
+  name: IsClipboardDataTypeAvailable
+  params:
+  - uint32_t
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined1
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 275486
+  win_impl: 9578995
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+- win: 12
+  mac: 12
+  origin: both
+  name: GetAvailableClipboardDataTypes
+  params:
+  - uint32_t*
+  - uint32_t&
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: uint
+  param_bytes: 12
+  ret_n: 12
+  mac_impl: 275662
+  win_impl: 9579110
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: uint32_t
+- win: 13
+  mac: 13
+  origin: both
+  name: GetClipboardWithDataTypeAvailable
+  params:
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 275882
+  win_impl: 9579258
+  win_name: null
+  evidence:
+  - ret_n
+  status: confirmed
+  human:
+    returns: uint32_t
+    note: returns a clipboard ID, 0xfffffffd when none has the type
+- win: 14
+  mac: 14
+  origin: both
+  name: GetClipboardData
+  params:
+  - uint32_t
+  - uint32_t
+  - void**
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined1
+  param_bytes: 16
+  ret_n: 16
+  mac_impl: 276016
+  win_impl: 9579339
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+- win: 15
+  mac: 15
+  origin: both
+  name: SetClipboardData
+  params:
+  - cIGZClipboardData*
+  - uint8_t
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined1
+  param_bytes: 12
+  ret_n: 12
+  mac_impl: 276220
+  win_impl: 9579466
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+- win: 16
+  mac: 16
+  origin: both
+  name: ClearClipboard
+  params:
+  - uint32_t
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 276414
+  win_impl: 9579579
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+- win: 17
+  mac: 19
+  origin: both
+  name: GetClipboardText
+  params:
+  - void*
+  - uint32_t&
+  - uint32_t
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined1
+  param_bytes: 16
+  ret_n: 16
+  mac_impl: 276954
+  win_impl: 9579914
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+- win: 18
+  mac: 17
+  origin: both
+  name: GetClipboardText
+  params:
+  - cIGZString&
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined1
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 276584
+  win_impl: 9579686
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+- win: 19
+  mac: 20
+  origin: both
+  name: SetClipboardText
+  params:
+  - void*
+  - uint32_t
+  - uint32_t
+  - uint8_t
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined1
+  param_bytes: 20
+  ret_n: 20
+  mac_impl: 271206
+  win_impl: 9580041
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+- win: 20
+  mac: 18
+  origin: both
+  name: SetClipboardText
+  params:
+  - cIGZString const&
+  - uint8_t
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined1
+  param_bytes: 12
+  ret_n: 12
+  mac_impl: 276760
+  win_impl: 9579801
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool

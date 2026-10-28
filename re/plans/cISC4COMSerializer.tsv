@@ -1,0 +1,11 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00aa268c	0	0x005d1780	cSC4COMSerializer	QueryInterface	bool	uint32_t riid|void** ppvObj	cISC4COMSerializer	re/vtables/cISC4COMSerializer.yaml	8
+0x00aa268c	1	0x0057eb00	cSC4COMSerializer	AddRef	uint32_t		cISC4COMSerializer	re/vtables/cISC4COMSerializer.yaml	8
+0x00aa268c	2	0x0057eb70	cSC4COMSerializer	Release	uint32_t		cISC4COMSerializer	re/vtables/cISC4COMSerializer.yaml	8
+0x00aa268c	3	0x005d26c0	cSC4COMSerializer	Open	bool	cISC4DBSegment* pSegment|int32_t mode	cISC4COMSerializer	re/vtables/cISC4COMSerializer.yaml	8
+0x00aa268c	4	0x005d3500	cSC4COMSerializer	Close	bool		cISC4COMSerializer	re/vtables/cISC4COMSerializer.yaml	8
+0x00aa268c	5	0x004ed900	cSC4COMSerializer	GetMode	int32_t		cISC4COMSerializer	re/vtables/cISC4COMSerializer.yaml	8
+0x00aa268c	6	0x005d38d0	cSC4COMSerializer	LoadClassObjects	bool		cISC4COMSerializer	re/vtables/cISC4COMSerializer.yaml	8
+0x00aa268c	7	0x005d3de0	cSC4COMSerializer	SaveClassObjects	bool		cISC4COMSerializer	re/vtables/cISC4COMSerializer.yaml	8
+0x00aa268c	8	0x005d4810	cSC4COMSerializer	WriteGZSerializable	bool	cIGZOStream& stream|cIGZSerializable const* pSerializable	cISC4COMSerializer	re/vtables/cISC4COMSerializer.yaml	8
+0x00aa268c	9	0x005d4880	cSC4COMSerializer	ReadGZSerializable	bool	cIGZIStream& stream|cIGZSerializable** ppSerializableOut|bool bLoadNow	cISC4COMSerializer	re/vtables/cISC4COMSerializer.yaml	8

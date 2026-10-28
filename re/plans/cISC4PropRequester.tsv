@@ -1,0 +1,8 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00ab2600	0	0x006e2cd0	cSC4PollutionSimulator	QueryInterface	bool	uint32_t riid|void** ppvObj	cISC4PropRequester	re/vtables/cISC4PropRequester.yaml	8
+0x00ab2600	1	0x00695330	cSC4PollutionSimulator	AddRef	uint32_t		cISC4PropRequester	re/vtables/cISC4PropRequester.yaml	8
+0x00ab2600	2	0x006e5f20	cSC4PollutionSimulator	Release	uint32_t		cISC4PropRequester	re/vtables/cISC4PropRequester.yaml	8
+0x00ab2600	3	0x006e3bc0	cSC4PollutionSimulator	GetRequestedShare	int32_t	SC4Rect<int32_t> const& area	cISC4PropRequester	re/vtables/cISC4PropRequester.yaml	8
+0x00ab2600	4	0x006e5030	cSC4PollutionSimulator	GetRequesterSatisfactionId	uint32_t		cISC4PropRequester	re/vtables/cISC4PropRequester.yaml	8
+0x00ab2600	5	0x00648ef0	cSC4PollutionSimulator	UsesCustomPropSelector	bool		cISC4PropRequester	re/vtables/cISC4PropRequester.yaml	8
+0x00ab2600	6	0x0088b410	cSC4PollutionSimulator	SelectProp	uint32_t	SC4Vector<uint32_t> const& candidates|int32_t x|int32_t z	cISC4PropRequester	re/vtables/cISC4PropRequester.yaml	8

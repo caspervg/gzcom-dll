@@ -1,0 +1,2 @@
+interface: cIGZTestService
+error: "java.lang.IllegalStateException: no __ZTV/__ZTI for cIGZTestService"

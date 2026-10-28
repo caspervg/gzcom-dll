@@ -1,0 +1,612 @@
+# Layout spec. Machine fields are rewritten by `vtables.py align`.
+# Put corrections in a slot's `human:` map, which align keeps.
+interface: cIGZString
+gziid: '0x089b7dc8'
+base: cIGZUnknown
+base_slots: 3
+extent:
+  win: 28
+  win_source: mac-prior
+  win_run: 41
+  mac: 28
+mac:
+  program: /Mac OS X/OldMacVersions/MacOS_x86-32-cpu0x3
+  vtable: '0x00ac13e0'
+  implementers:
+  - class: cRZString
+    base_offset: 0
+win:
+  program: /Windows/WINDOWS_SimCity 4.exe
+  qi: '0x0090e1d1'
+  vftable: '0x00a80810'
+  adjust: 0
+  pure_table: null
+notes:
+- 4 Windows tables share the QI, used the implementer's own 0x00a80810
+- primary Windows table runs past the Mac slot count, so slots added after the Mac build would be missed
+slots:
+- win: 0
+  mac: 0
+  origin: both
+  name: QueryInterface
+  params:
+  - uint32_t
+  - void**
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 74724
+  win_impl: 9494993
+  win_name: cRZString::QueryInterface
+  evidence:
+  - ret_n
+  - win_name
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+- win: 1
+  mac: 1
+  origin: both
+  name: AddRef
+  params: []
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 74780
+  win_impl: 9753423
+  win_name: cRZString::AddRef
+  evidence:
+  - ret_n
+  - win_name
+  - call_edges
+  status: confirmed
+  human:
+    returns: uint32_t
+- win: 2
+  mac: 2
+  origin: both
+  name: Release
+  params: []
+  const: false
+  returns: null
+  ret_guess: int
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 74798
+  win_impl: 9495027
+  win_name: cRZString::Release
+  evidence:
+  - ret_n
+  - win_name
+  status: confirmed
+  human:
+    returns: uint32_t
+- win: 3
+  mac: 4
+  origin: both
+  name: FromChar
+  params:
+  - char const*
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 75726
+  win_impl: 9499974
+  win_name: cRZString::FromCharN
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: uint32_t
+- win: 4
+  mac: 3
+  origin: both
+  name: FromChar
+  params:
+  - char const*
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 79298
+  win_impl: 9499919
+  win_name: cRZString::FromChar
+  evidence:
+  - ret_n
+  - win_name
+  status: confirmed
+  human:
+    returns: uint32_t
+- win: 5
+  mac: 5
+  origin: both
+  name: ToChar
+  params: []
+  const: true
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 76264
+  win_impl: 10321507
+  win_name: cRZString::ToChar
+  evidence:
+  - ret_n
+  - win_name
+  - call_edges
+  status: confirmed
+  human:
+    returns: char const*
+- win: 6
+  mac: 6
+  origin: both
+  name: Data
+  params: []
+  const: true
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 76658
+  win_impl: 10321507
+  win_name: cRZString::ToChar
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: char const*
+- win: 7
+  mac: 7
+  origin: both
+  name: Strlen
+  params: []
+  const: true
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 76512
+  win_impl: 9495734
+  win_name: cRZString::Strlen
+  evidence:
+  - ret_n
+  - win_name
+  - call_edges
+  status: confirmed
+  human:
+    returns: uint32_t
+- win: 8
+  mac: 10
+  origin: both
+  name: IsEqual
+  params:
+  - char const*
+  - uint32_t
+  - bool
+  const: true
+  returns: null
+  ret_guess: bool
+  param_bytes: 12
+  ret_n: 12
+  mac_impl: 81784
+  win_impl: 9497949
+  win_name: cRZString::IsEqualChar
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: bool
+- win: 9
+  mac: 9
+  origin: both
+  name: IsEqual
+  params:
+  - cIGZString const&
+  - bool
+  const: true
+  returns: null
+  ret_guess: undefined1
+  param_bytes: 8
+  ret_n: null
+  mac_impl: 75798
+  win_impl: 9495106
+  win_name: cRZString::IsEqualPtr
+  evidence:
+  - call_edges
+  status: probable
+  human:
+    returns: bool
+- win: 10
+  mac: 8
+  origin: both
+  name: IsEqual
+  params:
+  - cIGZString const*
+  - bool
+  const: true
+  returns: null
+  ret_guess: bool
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 82076
+  win_impl: 9497687
+  win_name: cRZString::IsEqual
+  evidence:
+  - ret_n
+  - win_name
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+- win: 11
+  mac: 12
+  origin: both
+  name: CompareTo
+  params:
+  - char const*
+  - uint32_t
+  - bool
+  const: true
+  returns: null
+  ret_guess: int
+  param_bytes: 12
+  ret_n: 12
+  mac_impl: 81094
+  win_impl: 9498459
+  win_name: cRZString::CompareToChar
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: int32_t
+- win: 12
+  mac: 11
+  origin: both
+  name: CompareTo
+  params:
+  - cIGZString const&
+  - bool
+  const: true
+  returns: null
+  ret_guess: int
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 81426
+  win_impl: 9498209
+  win_name: cRZString::CompareTo
+  evidence:
+  - ret_n
+  - win_name
+  - call_edges
+  status: confirmed
+  human:
+    returns: int32_t
+- win: 13
+  mac: 13
+  origin: both
+  name: operator=
+  params:
+  - cIGZString const&
+  const: false
+  returns: null
+  ret_guess: cRZString *
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 75692
+  win_impl: 9495088
+  win_name: cRZString::operator=
+  evidence:
+  - ret_n
+  - win_name
+  - call_edges
+  status: confirmed
+  human:
+    returns: cIGZString&
+- win: 14
+  mac: 14
+  origin: both
+  name: Copy
+  params:
+  - cIGZString const&
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 74836
+  win_impl: 9495050
+  win_name: cRZString::Copy
+  evidence:
+  - ret_n
+  - win_name
+  - call_edges
+  status: confirmed
+  human:
+    returns: int32_t
+- win: 15
+  mac: 15
+  origin: both
+  name: Resize
+  params:
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 76226
+  win_impl: 9498690
+  win_name: cRZString::Resize
+  evidence:
+  - ret_n
+  - win_name
+  status: confirmed
+  human:
+    returns: int32_t
+- win: 16
+  mac: 17
+  origin: both
+  name: Append
+  params:
+  - cIGZString const&
+  const: false
+  returns: null
+  ret_guess: cRZString *
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 75880
+  win_impl: 9498732
+  win_name: cRZString::Append
+  evidence:
+  - ret_n
+  - win_name
+  - call_edges
+  status: confirmed
+  human:
+    returns: cIGZString*
+- win: 17
+  mac: 16
+  origin: both
+  name: Append
+  params:
+  - char const*
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: int
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 75836
+  win_impl: 9498707
+  win_name: cRZString::AppendChar
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: cIGZString*
+- win: 18
+  mac: 19
+  origin: both
+  name: Insert
+  params:
+  - uint32_t
+  - cIGZString const&
+  const: false
+  returns: null
+  ret_guess: cRZString *
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 75992
+  win_impl: 9498800
+  win_name: cRZString::Insert
+  evidence:
+  - ret_n
+  - win_name
+  - call_edges
+  status: confirmed
+  human:
+    returns: cIGZString*
+- win: 19
+  mac: 18
+  origin: both
+  name: Insert
+  params:
+  - uint32_t
+  - char const*
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: int
+  param_bytes: 12
+  ret_n: 12
+  mac_impl: 75942
+  win_impl: 9498771
+  win_name: cRZString::InsertChar
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: cIGZString*
+- win: 20
+  mac: 21
+  origin: both
+  name: Replace
+  params:
+  - uint32_t
+  - cIGZString const&
+  const: false
+  returns: null
+  ret_guess: cRZString *
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 76112
+  win_impl: 9501744
+  win_name: cRZString::Replace
+  evidence:
+  - ret_n
+  - win_name
+  - call_edges
+  status: confirmed
+  human:
+    returns: cIGZString*
+- win: 21
+  mac: 20
+  origin: both
+  name: Replace
+  params:
+  - uint32_t
+  - char const*
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: cRZString *
+  param_bytes: 12
+  ret_n: 12
+  mac_impl: 76062
+  win_impl: 9501715
+  win_name: cRZString::ReplaceChar
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: cIGZString*
+- win: 22
+  mac: 22
+  origin: both
+  name: Erase
+  params:
+  - uint32_t
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 76182
+  win_impl: 9495768
+  win_name: cRZString::Erase
+  evidence:
+  - ret_n
+  - win_name
+  status: confirmed
+  human:
+    returns: cIGZString*
+- win: 23
+  mac: 24
+  origin: both
+  name: Find
+  params:
+  - cIGZString const&
+  - uint32_t
+  - bool
+  const: true
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 12
+  ret_n: 12
+  mac_impl: 80652
+  win_impl: 9498988
+  win_name: cRZString::Find
+  evidence:
+  - ret_n
+  - win_name
+  - call_edges
+  status: confirmed
+  human:
+    returns: int32_t
+- win: 24
+  mac: 23
+  origin: both
+  name: Find
+  params:
+  - char const*
+  - uint32_t
+  - bool
+  const: true
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 12
+  ret_n: 12
+  mac_impl: 80860
+  win_impl: 9498843
+  win_name: cRZString::FindChar
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: int32_t
+- win: 25
+  mac: 26
+  origin: both
+  name: RFind
+  params:
+  - cIGZString const&
+  - uint32_t
+  - bool
+  const: true
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 12
+  ret_n: 12
+  mac_impl: 80210
+  win_impl: 9499276
+  win_name: cRZString::RFind
+  evidence:
+  - ret_n
+  - win_name
+  - call_edges
+  status: confirmed
+  human:
+    returns: int32_t
+- win: 26
+  mac: 25
+  origin: both
+  name: RFind
+  params:
+  - char const*
+  - uint32_t
+  - bool
+  const: true
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 12
+  ret_n: 12
+  mac_impl: 80418
+  win_impl: 9499131
+  win_name: cRZString::RFindChar
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: int32_t
+- win: 27
+  mac: 27
+  origin: both
+  name: Sprintf
+  params:
+  - char const*
+  - '...'
+  const: false
+  returns: null
+  ret_guess: cRZString *
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 76936
+  win_impl: 9500020
+  win_name: cRZString::Sprintf
+  evidence:
+  - ret_n
+  - win_name
+  status: confirmed
+  human:
+    returns: cIGZString*

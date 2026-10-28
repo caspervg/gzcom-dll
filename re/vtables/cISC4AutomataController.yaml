@@ -1,0 +1,752 @@
+# Layout spec. Machine fields are rewritten by `vtables.py align`.
+# Put corrections in a slot's `human:` map, which align keeps.
+interface: cISC4AutomataController
+gziid: '0x6a1857f8'
+base: cIGZUnknown
+base_slots: 3
+extent:
+  win: 35
+  win_source: mac-prior
+  win_run: 40
+  mac: 35
+mac:
+  program: /Mac OS X/OldMacVersions/MacOS_x86-32-cpu0x3
+  vtable: '0x00ac6460'
+  implementers:
+  - class: cSC4AutomataController
+    base_offset: 0
+win:
+  program: /Windows/WINDOWS_SimCity 4.exe
+  qi: '0x00514f60'
+  vftable: '0x00a95d90'
+  adjust: 0
+  pure_table: null
+notes:
+- primary Windows table runs past the Mac slot count, so slots added after the Mac build would be missed
+slots:
+- win: 0
+  mac: 0
+  origin: both
+  name: QueryInterface
+  params:
+  - uint32_t
+  - void**
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 738910
+  win_impl: 5328736
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+- win: 1
+  mac: 1
+  origin: both
+  name: AddRef
+  params: []
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 6503642
+  win_impl: 9103360
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+- win: 2
+  mac: 2
+  origin: both
+  name: Release
+  params: []
+  const: false
+  returns: null
+  ret_guess: int
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 6503670
+  win_impl: 5340944
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+- win: 3
+  mac: 3
+  origin: both
+  name: Init
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 741114
+  win_impl: 5335120
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+    note: win returns CONCAT31(..,1) in AL. Mac returns 1.
+- win: 4
+  mac: 4
+  origin: both
+  name: Shutdown
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 744530
+  win_impl: 5335536
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+    note: win returns CONCAT31(..,1) in AL. Mac returns 1.
+- win: 5
+  mac: 5
+  origin: both
+  name: GetControllerType
+  params: []
+  const: true
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 6503710
+  win_impl: 6113808
+  win_name: null
+  evidence:
+  - ret_n
+  - pure_both
+  status: confirmed
+  human:
+    returns: uint32_t
+    note: pure on both builds. The concrete win classes return a constant in EAX (00517f00 MOV EAX,0x4a18672b).
+- win: 6
+  mac: 6
+  origin: both
+  name: GetOccupant
+  params: []
+  const: true
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 6503238
+  win_impl: 5341040
+  win_name: cSC4ViewInputControl::GetID
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: cISC4Occupant*
+    status: confirmed
+    note: win 00517f70 (ICF) MOV EAX,[ECX+0xc]. SetOccupant (slot 14) writes the same field.
+- win: 7
+  mac: 7
+  origin: both
+  name: GetTemplateName
+  params: []
+  const: true
+  returns: null
+  ret_guess: cSC4AutomataController *
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 6503250
+  win_impl: 5340656
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: cIGZString const&
+    status: confirmed
+    note: win 00517df0 and Mac both return template+4 or this+0x28, the address of a cRZString. Pointer vs reference is a
+      guess.
+- win: 8
+  mac: 8
+  origin: both
+  name: GetTemplate
+  params: []
+  const: true
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 6503456
+  win_impl: 4247136
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: tControllerTemplate const*
+    note: win MOV EAX,[ECX+0x10]; RET.
+- win: 9
+  mac: 9
+  origin: both
+  name: GetRadius
+  params: []
+  const: true
+  returns: null
+  ret_guess: longdouble
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 6503274
+  win_impl: 5340672
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: float
+    note: win FLD [template+0x20] or a constant.
+- win: 10
+  mac: 10
+  origin: both
+  name: IsActive
+  params: []
+  const: true
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 6503296
+  win_impl: 5340704
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+    note: win returns AL. Mac returns 0 or 1.
+- win: 11
+  mac: 11
+  origin: both
+  name: GetPosition
+  params:
+  - float*
+  const: true
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 742234
+  win_impl: 5331520
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: void
+    note: win and Mac return void.
+- win: 12
+  mac: 12
+  origin: both
+  name: CheckFlag
+  params:
+  - cISC4AutomataController::tControllerFlag
+  const: true
+  returns: null
+  ret_guess: bool
+  param_bytes: null
+  ret_n: 4
+  mac_impl: 6503402
+  win_impl: 5340768
+  win_name: null
+  evidence:
+  - call_edges
+  status: probable
+  human:
+    returns: bool
+    status: confirmed
+    note: win 00517e60 tests [ECX+0x40]&arg, 0 or 1 in EAX; RET 4. Mac returns bool from a flag test at +0x38.
+- win: 13
+  mac: 13
+  origin: both
+  name: SetFlag
+  params:
+  - cISC4AutomataController::tControllerFlag
+  - bool
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: null
+  ret_n: 8
+  mac_impl: 6503422
+  win_impl: 5340784
+  win_name: null
+  evidence:
+  - call_edges
+  status: probable
+  human:
+    returns: void
+    status: confirmed
+    note: win 00517e70 ORs or clears arg in [ECX+0x40] by the bool; RET 8.
+- win: 14
+  mac: 14
+  origin: both
+  name: SetOccupant
+  params:
+  - cISC4Occupant*
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 738254
+  win_impl: 5340992
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: void
+    note: win swaps the occupant at [ECX+0xc] with AddRef/Release.
+- win: 15
+  mac: 15
+  origin: both
+  name: SetTemplate
+  params:
+  - tControllerTemplate const*
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 738284
+  win_impl: 5338160
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: void
+    status: confirmed
+    note: win 00517430 MOV [ECX+0x10],arg and resets the name string. Mac writes +0x10 too.
+- win: 16
+  mac: 16
+  origin: both
+  name: SetAutomataGroups
+  params:
+  - SC4Vector<uint32_t> const&
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 0
+  mac_impl: 750224
+  win_impl: 6113808
+  win_name: null
+  evidence:
+  - ret_n-mismatch
+  - call_edges
+  - pure_both
+  status: confirmed
+  human:
+    returns: void
+    note: pure on both builds. Name from cSC4AutomataAttractor::SetAutomataGroups.
+- win: 17
+  mac: 17
+  origin: both
+  name: SetPosition
+  params:
+  - float const*
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 6504614
+  win_impl: 6303632
+  win_name: OOAnalyzer::cls_0x602f90::meth_0x602f90
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: void
+    status: confirmed
+    note: win 00602f90 (ICF) copies a float vector; RET 4.
+- win: 18
+  mac: 18
+  origin: both
+  name: Activate
+  params:
+  - bool
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 740890
+  win_impl: 5335712
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: void
+    note: win and Mac return void.
+- win: 19
+  mac: 19
+  origin: both
+  name: SetLifetime
+  params:
+  - float
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 6503586
+  win_impl: 5340912
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: void
+    status: confirmed
+    note: win 00517ef0 MOV [ECX+0x54],arg; RET 4.
+- win: 20
+  mac: 20
+  origin: both
+  name: GetOccupantBoundingBox
+  params:
+  - float*
+  - float*
+  const: true
+  returns: null
+  ret_guess: void
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 739654
+  win_impl: 5336768
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: void
+    note: win and Mac return void.
+- win: 21
+  mac: 21
+  origin: both
+  name: GetBoundingBox
+  params:
+  - float*
+  - float*
+  const: true
+  returns: null
+  ret_guess: void
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 739296
+  win_impl: 5331920
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: void
+    note: win and Mac return void.
+- win: 22
+  mac: 22
+  origin: both
+  name: GetLotFacingPoint
+  params:
+  - float*
+  const: true
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 742324
+  win_impl: 5336128
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: void
+    note: win and Mac return void.
+- win: 23
+  mac: 23
+  origin: both
+  name: IsPointWithinRadius
+  params:
+  - float const*
+  - float*
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 739990
+  win_impl: 5331584
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+    note: win returns AL. Mac returns 0 or 1.
+- win: 24
+  mac: 24
+  origin: both
+  name: CheckTimeOfDay
+  params:
+  - tControllerTime const&
+  - tControllerTime const&
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 738560
+  win_impl: 7306688
+  win_name: cGZDrawContextRenderToHardware::DrawPreclippedSpanList
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: void
+    status: confirmed
+    note: empty on both builds. win 006f7dc0 is a shared RET 8 stub.
+- win: 25
+  mac: 25
+  origin: both
+  name: CheckEffectTriggers
+  params: []
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 743736
+  win_impl: 5335872
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: void
+    note: win and Mac return void.
+- win: 26
+  mac: 26
+  origin: both
+  name: NotifySourceDataChanged
+  params: []
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 738566
+  win_impl: 5328432
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: void
+    note: win and Mac return void.
+- win: 27
+  mac: 27
+  origin: both
+  name: HandleViewChanged
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 741784
+  win_impl: 5331056
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+    note: win returns MOV AL,1. Mac returns 1.
+- win: 28
+  mac: 28
+  origin: both
+  name: HandleStateTick
+  params:
+  - cISC4Automaton*
+  - uint32_t
+  - float
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 12
+  ret_n: 12
+  mac_impl: 755224
+  win_impl: 5356384
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: bool
+    status: confirmed
+    note: win 0051bb60 RET 0xc, ends MOV AL,1 or XOR AL,AL. Mac returns 0 or 1.
+- win: 29
+  mac: 29
+  origin: both
+  name: HandleEnterState
+  params:
+  - cISC4Automaton*
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 755034
+  win_impl: 5356704
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: bool
+    status: confirmed
+    note: win 0051bca0 calls GetControllerQInfo with create=1 then queues, like Mac HandleEnterState. Ends XOR AL,AL; RET
+      8.
+- win: 30
+  mac: 30
+  origin: both
+  name: HandleExitState
+  params:
+  - cISC4Automaton*
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 754856
+  win_impl: 5356768
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: bool
+    status: confirmed
+    note: win 0051bce0 looks the queue up without creating it, like Mac HandleExitState. Returns AL=0; RET 8.
+- win: 31
+  mac: 31
+  origin: both
+  name: HandleRemoveAutomaton
+  params:
+  - cISC4Automaton*
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 754720
+  win_impl: 5356880
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+    note: win returns AL=1. Mac returns 1.
+- win: 32
+  mac: 32
+  origin: both
+  name: GetBehaviorTemplate
+  params:
+  - float
+  - cS3DVector3 const&
+  const: true
+  returns: null
+  ret_guess: int *
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 756960
+  win_impl: 5356208
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: tBehaviorTemplate const*
+    status: confirmed
+    note: win 0051bab0 and Mac walk the template's behavior vector and return an element or null. Callers take tBehaviorTemplate
+      const*.
+- win: 33
+  mac: 33
+  origin: both
+  name: IsFull
+  params: []
+  const: true
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 6503520
+  win_impl: 5340880
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: bool
+    status: confirmed
+    note: win 00517ed0 returns 0 or 1 in EAX from a count compare. Mac returns 0 or 1.
+- win: 34
+  mac: 34
+  origin: both
+  name: TractRect
+  params: []
+  const: false
+  returns: null
+  ret_guess: cSC4AutomataController *
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 6503600
+  win_impl: 4683792
+  win_name: cGZWin::GetAreaToDrawTo
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: SC4Rect<uint8_t>&
+    status: confirmed
+    note: win 00477810 (ICF) and Mac return this+0x24. cSC4ControllerGrid::AddController reads it as SC4Rect<unsigned char>.

@@ -1,0 +1,19 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00adbf38	0	0x0099358d	cGZWinIMEServer	QueryInterface	bool	uint32_t riid|void** ppvObj	cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	1	0x0094bc3f	cGZWinIMEServer	AddRef	uint32_t		cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	2	0x009939ac	cGZWinIMEServer	Release	uint32_t		cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	3	0x009939c1	cGZWinIMEServer	Init	bool		cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	4	0x00993a13	cGZWinIMEServer	Shutdown	bool		cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	5	0x0094a5ea	cGZWinIMEServer	IsIMEAvailable	bool		cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	6	0x00995e67	cGZWinIMEServer	GetEnabled	bool		cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	7	0x009935ca	cGZWinIMEServer	SetEnabled	void	bool enabled	cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	8	0x00949ade	cGZWinIMEServer	GetCompositionEnabled	bool		cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	9	0x0091559a	cGZWinIMEServer	SetCompositionEnabled	bool	bool enabled	cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	10	0x009c5e01	cGZWinIMEServer	GetCompositionActive	bool		cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	11	0x009935d9	cGZWinIMEServer	SetCompositionActive	bool	bool active	cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	12	0x009935e3	cGZWinIMEServer	GetCompositionStringData	void*		cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	13	0x00995b24	cGZWinIMEServer	SetCompositionString	bool	uint16_t* text|uint32_t length	cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	14	0x009935e7	cGZWinIMEServer	GetCandidateListActive	bool		cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	15	0x009935ee	cGZWinIMEServer	SetCandidateListActive	bool	bool active	cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	16	0x009935f8	cGZWinIMEServer	GetCandidateListData	void*		cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0
+0x00adbf38	17	0x00993a40	cGZWinIMEServer	SetCandidateListSelection	bool	uint32_t index	cIGZWinIMEServer	re/vtables/cIGZWinIMEServer.yaml	0

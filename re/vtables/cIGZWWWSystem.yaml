@@ -1,0 +1,700 @@
+# Layout spec. Machine fields are rewritten by `vtables.py align`.
+# Put corrections in a slot's `human:` map, which align keeps.
+interface: cIGZWWWSystem
+gziid: '0x449b1912'
+base: cIGZUnknown
+base_slots: 3
+extent:
+  win: 32
+  win_source: pure-table
+  win_run: 32
+  mac: 32
+mac:
+  program: /Mac OS X/OldMacVersions/MacOS_x86-32-cpu0x3
+  vtable: '0x00add560'
+  implementers:
+  - class: cGZWWWSystem
+    base_offset: 4
+win:
+  program: /Windows/WINDOWS_SimCity 4.exe
+  qi: '0x008f687d'
+  vftable: '0x00acce48'
+  adjust: 4
+  pure_table: '0x00acccc0'
+notes: []
+slots:
+- win: 0
+  mac: 0
+  origin: both
+  name: QueryInterface
+  params:
+  - uint32_t
+  - void**
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 4434406
+  win_impl: 9398397
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+- win: 1
+  mac: 1
+  origin: both
+  name: AddRef
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 4448310
+  win_impl: 9398470
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+- win: 2
+  mac: 2
+  origin: both
+  name: Release
+  params: []
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 0
+  ret_n: null
+  mac_impl: 4434488
+  win_impl: 10273325
+  win_name: null
+  evidence:
+  - call_edges
+  status: probable
+  human:
+    status: confirmed
+    note: win 009cd02a is SUB ECX,4; JMP 009cc22d, which adds 8 and jumps to the shared ref count release.
+- win: 3
+  mac: 3
+  origin: both
+  name: Init
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 4434502
+  win_impl: 9398513
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+    note: win returns a byte 1. Mac returns 1.
+- win: 4
+  mac: 4
+  origin: both
+  name: Shutdown
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 4434336
+  win_impl: 9398570
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+    note: win returns CONCAT31(..,1). Mac returns 1.
+- win: 5
+  mac: 5
+  origin: both
+  name: PostInit
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 4434526
+  win_impl: 9398526
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+    note: win returns CONCAT31(..,1). Mac returns 1.
+- win: 6
+  mac: 6
+  origin: both
+  name: SetDefaultNotificationTarget
+  params:
+  - cIGZMessageTarget2*
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 4434818
+  win_impl: 9398757
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: void
+    note: win 008f69e5 (undefined code) swaps the AddRef'd target at +0x34 and ends RET 4.
+- win: 7
+  mac: 7
+  origin: both
+  name: GetDefaultNotificationTarget
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 4434870
+  win_impl: 10336256
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: cIGZMessageTarget2*
+    note: win 009db800 (undefined code) is MOV EAX,[ECX+0x34]; RET, the field slot 6 sets.
+- win: 8
+  mac: 8
+  origin: both
+  name: SetDefaultCustomData
+  params:
+  - void*
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 4434882
+  win_impl: 9942167
+  win_name: cGZDBSegmentDirectoryFiles::SetDefaultGroupId
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: void
+    status: confirmed
+    note: win 0097b497 stores the argument at +0x38 and ends RET 4. ICF body named cGZDBSegmentDirectoryFiles::SetDefaultGroupId. LoadDocument uses +0x38 when its custom data is null.
+- win: 9
+  mac: 9
+  origin: both
+  name: GetDefaultCustomData
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 4434896
+  win_impl: 10064229
+  win_name: cGZDBSegmentDirectoryFiles::GroupId
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: void*
+    status: confirmed
+    note: win 00999165 is MOV EAX,[ECX+0x38]; RET (ICF, named cGZDBSegmentDirectoryFiles::GroupId). Mac returns this+0x38.
+- win: 10
+  mac: 10
+  origin: both
+  name: GetCacheDirectory
+  params:
+  - cRZString&
+  const: false
+  returns: null
+  ret_guess: undefined1
+  param_bytes: 4
+  ret_n: null
+  mac_impl: 4434578
+  win_impl: 9398635
+  win_name: null
+  evidence: []
+  status: review
+  human:
+    params:
+    - SC4String&
+    returns: bool
+    status: confirmed
+    note: win 008f696b (undefined code) is MOV ECX,[ECX+0x48]; JMP [EAX+0x14], forwarding to the network file cache like Mac does through this+0x50. Mac returns the forwarded byte.
+- win: 11
+  mac: 11
+  origin: both
+  name: SetCacheDirectory
+  params:
+  - cRZString const&
+  const: false
+  returns: null
+  ret_guess: undefined1
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 4436132
+  win_impl: 9402726
+  win_name: null
+  evidence:
+  - ret_n
+  - strings
+  - call_edges
+  status: confirmed
+  human:
+    params:
+    - SC4String const&
+    returns: bool
+    note: win and Mac return a byte. cRZString maps to SC4String.
+- win: 12
+  mac: 12
+  origin: both
+  name: SetCookieUsage
+  params:
+  - bool
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 4434622
+  win_impl: 9398643
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: void
+    status: confirmed
+    note: win 008f6973 (undefined code) stores the byte at +0x44 and ends RET 4. Mac stores this+0x4c.
+- win: 13
+  mac: 13
+  origin: both
+  name: GetCookieUsage
+  params: []
+  const: false
+  returns: null
+  ret_guess: cGZWWWSystem
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 4434610
+  win_impl: 9955486
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: bool
+    status: confirmed
+    note: win 0097e89e (undefined code) is MOV AL,[ECX+0x44]; RET. Mac returns the byte at this+0x4c.
+- win: 14
+  mac: 14
+  origin: both
+  name: SetCacheUsage
+  params:
+  - bool
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 4434648
+  win_impl: 9398657
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: void
+    status: confirmed
+    note: win 008f6981 (undefined code) stores the byte at +0x45 and ends RET 4. Mac stores this+0x4d.
+- win: 15
+  mac: 15
+  origin: both
+  name: GetCacheUsage
+  params: []
+  const: false
+  returns: null
+  ret_guess: cGZWWWSystem
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 4434636
+  win_impl: 9398653
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: bool
+    status: confirmed
+    note: win 008f697d (undefined code) is MOV AL,[ECX+0x45]; RET. Mac returns the byte at this+0x4d.
+- win: 16
+  mac: 17
+  origin: both
+  name: LoadDocument
+  params:
+  - cRZURL&
+  - cIGZMessageTarget2*
+  - cIGZWWWSystem::RAMDataPreference
+  - void*
+  - bool
+  const: false
+  returns: null
+  ret_guess: int
+  param_bytes: null
+  ret_n: 20
+  mac_impl: 4439668
+  win_impl: 9405245
+  win_name: null
+  evidence:
+  - call_edges
+  status: probable
+  human:
+    params:
+    - cRZURL&
+    - cIGZMessageTarget2*
+    - cIGZWWWSystem::RAMDataPreference
+    - void*
+    - bool
+    returns: uint32_t
+    status: confirmed
+    note: win 008f833d does the work and ends RET 0x14. Slot 17 builds a URL and calls it through [EAX+0x40], so this is the cRZURL overload. Returns the new job ID or 0.
+- win: 17
+  mac: 16
+  origin: both
+  name: LoadDocument
+  params:
+  - cRZString const&
+  - cIGZMessageTarget2*
+  - cIGZWWWSystem::RAMDataPreference
+  - void*
+  - bool
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: null
+  ret_n: 20
+  mac_impl: 4434948
+  win_impl: 9401013
+  win_name: null
+  evidence: []
+  status: review
+  human:
+    params:
+    - SC4String const&
+    - cIGZMessageTarget2*
+    - cIGZWWWSystem::RAMDataPreference
+    - void*
+    - bool
+    returns: uint32_t
+    status: confirmed
+    note: win 008f72b5 builds a URL from the string and calls slot 16 through [EAX+0x40]. Mac pairs the string overload first, so MSVC reversed the pair as expected.
+- win: 18
+  mac: 18
+  origin: both
+  name: GetDocumentLoadStatus
+  params:
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 4448402
+  win_impl: 9399560
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: uint32_t
+    status: confirmed
+    note: win 008f6d08 searches both job lists and returns 2 when found, 0 otherwise. Mac returns the same values. RET 4.
+- win: 19
+  mac: 19
+  origin: both
+  name: GetJob
+  params:
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: cGZWWWSystem *
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 4436890
+  win_impl: 9399641
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: cIGZWWWSystem::Job*
+    status: confirmed
+    note: win 008f6d59 (undefined code) walks the job list at +0x3c and returns node+8 or 0, RET 4. Mac returns the list payload. Job is opaque, its Mac layout holds a std::basic_string.
+- win: 20
+  mac: 20
+  origin: both
+  name: HTTPClientJobIDFromWWWSystemJobID
+  params:
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 4435278
+  win_impl: 9398796
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: uint32_t
+    status: confirmed
+    note: win 008f6a0c (undefined code) calls slot 19 through [EAX+0x4c] and returns job+0x3c for job types 1 and 2, RET 4.
+- win: 21
+  mac: 21
+  origin: both
+  name: FTPClientJobIDFromWWWSystemJobID
+  params:
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 4435328
+  win_impl: 9398832
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: uint32_t
+    status: confirmed
+    note: win 008f6a30 (undefined code) calls slot 19 through [EAX+0x4c] and returns job+0x3c for job type 3, RET 4.
+- win: 22
+  mac: 22
+  origin: both
+  name: CancelDocumentLoadRequest
+  params:
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 4448510
+  win_impl: 9404022
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: bool
+    status: confirmed
+    note: win 008f7e76 returns a byte 0 or 1 and cancels HTTP jobs on the client at +0x4c. Slot 23 calls it through [EAX+0x58].
+- win: 23
+  mac: 23
+  origin: both
+  name: CancelAllDocumentLoadRequests
+  params: []
+  const: false
+  returns: null
+  ret_guess: uint
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 4438892
+  win_impl: 9404164
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: uint32_t
+    status: confirmed
+    note: win 008f7f04 gathers every job ID, calls slot 22 on each and returns the count. Mac returns the vector size.
+- win: 24
+  mac: 24
+  origin: both
+  name: IsVisitedURL
+  params:
+  - cRZString const&
+  const: false
+  returns: null
+  ret_guess: undefined1
+  param_bytes: 4
+  ret_n: null
+  mac_impl: 4435372
+  win_impl: 9398861
+  win_name: null
+  evidence: []
+  status: review
+  human:
+    params:
+    - SC4String const&
+    returns: bool
+    status: confirmed
+    note: win 008f6a4d (undefined code) forwards to the network file cache at +0x48 through [EAX+0x30] or returns AL 0, RET 4 via the tail call. Mac does the same through this+0x50.
+- win: 25
+  mac: 25
+  origin: both
+  name: AddURLHandler
+  params:
+  - cIGZWWWSystemURLHandler*
+  const: false
+  returns: null
+  ret_guess: bool
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 4438062
+  win_impl: 9400458
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+    note: win and Mac return cVar != 0.
+- win: 26
+  mac: 26
+  origin: both
+  name: RemoveURLHandler
+  params:
+  - cIGZWWWSystemURLHandler*
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 4438138
+  win_impl: 9399851
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: void
+    note: win and Mac return nothing.
+- win: 27
+  mac: 27
+  origin: both
+  name: RemoveAllURLHandlers
+  params: []
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 0
+  ret_n: 4
+  mac_impl: 4437482
+  win_impl: 9399510
+  win_name: null
+  evidence:
+  - ret_n-mismatch
+  status: review
+  human:
+    returns: void
+    status: confirmed
+    note: win 008f6cd6 walks the handler list at +0x58 and tail jumps to list clear 009a841f, which ends with a plain RET. The ret_n 4 mismatch was a misread. Mac body matches.
+- win: 28
+  mac: 28
+  origin: both
+  name: GetHTTPClient
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 4434908
+  win_impl: 10075724
+  win_name: cGZWin::GetNotificationTarget
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: cRZHTTPClient*
+    status: confirmed
+    note: win 0099be4c returns +0x4c (ICF, named cGZWin::GetNotificationTarget). Slot 22 cancels HTTP jobs on that same field. The Mac build returns 0.
+- win: 29
+  mac: 29
+  origin: both
+  name: GetFTPClient
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 4434916
+  win_impl: 10305953
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: void*
+    status: confirmed
+    note: win 009d41a1 returns +0x50. The Mac build returns 0 and has no FTP client class, so the type is unknown.
+- win: 30
+  mac: 30
+  origin: both
+  name: GetNetworkFileCache
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 4434924
+  win_impl: 10074094
+  win_name: cGZWin::GetParentWin
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: NetworkFileCache*
+    status: confirmed
+    note: win 0099b7ee returns +0x48 (ICF, named cGZWin::GetParentWin), the field slots 10 and 24 forward to. Mac returns this+0x50.
+- win: 31
+  mac: 31
+  origin: both
+  name: GetCookieManager
+  params: []
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 0
+  ret_n: 0
+  mac_impl: 4434936
+  win_impl: 10305957
+  win_name: null
+  evidence:
+  - ret_n
+  status: probable
+  human:
+    returns: cRZCookieManager*
+    status: confirmed
+    note: win 009d41a5 (undefined code) is MOV EAX,[ECX+0x54]; RET. Mac returns this+0x54.

@@ -1,0 +1,5 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00abd3f4	0	0x00800c00	cS3DMaterialManager	QueryInterface	bool	uint32_t riid|void** ppvObj	cIS3DMaterialManager	re/vtables/cIS3DMaterialManager.yaml	0
+0x00abd3f4	3	0x00800d70	cS3DMaterialManager	CreateMaterial	bool	cS3DResMaterial const& resMaterial|cS3DMaterial** ppMaterial	cIS3DMaterialManager	re/vtables/cIS3DMaterialManager.yaml	0
+0x00abd3f4	4	0x005be2e0	cS3DMaterialManager	CreateMaterialVariant	bool	cS3DMaterial* pMaterial|uint32_t variant|cS3DMaterial** ppVariant	cIS3DMaterialManager	re/vtables/cIS3DMaterialManager.yaml	0
+0x00abd3f4	5	0x00800c50	cS3DMaterialManager	GetStatsString	void	cIGZString& stats	cIS3DMaterialManager	re/vtables/cIS3DMaterialManager.yaml	0

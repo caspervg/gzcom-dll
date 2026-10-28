@@ -1,0 +1,46 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00ad2968	0	0x00937818	cHitMan	QueryInterface	bool	uint32_t riid|void** ppvObj	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	3	0x009399cb	cHitMan	Init	bool		cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	4	0x00938643	cHitMan	Shutdown	bool		cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	5	0x0093793f	cHitMan	UpdateView	void		cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	6	0x00937875	cHitMan	Pause	bool		cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	7	0x00949ade	cHitMan	Unpause	bool		cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	8	0x0093998f	cHitMan	IsPaused	bool		cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	9	0x0093880a	cHitMan	LoadHitFile	bool	cIGZString const& path	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	10	0x0093906d	cHitMan	UnloadHitFile	bool	cIGZString const& path	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	11	0x009384c1	cHitMan	RegisterTrackDataBlock	bool	cIHitTrackDataBlock* pBlock	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	12	0x00937dcc	cHitMan	RemoveTrackDataBlock	bool	cIHitTrackDataBlock* pBlock	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	13	0x00937c00	cHitMan	GetTrackDataBlockAndOffset	bool	uint32_t id|cIHitTrackDataBlock** ppBlock|uint32_t& offsetOut	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	14	0x009379a4	cHitMan	TrackDataEntryPoint	int32_t	uint32_t id	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	15	0x00937855	cHitMan	CreateTrackPlayer	bool	uint32_t riid|void** ppvObj	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	16	0x00938118	cHitMan	GetHitList	bool	uint32_t group|uint32_t unused|void** ppHitList	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	17	0x00938438	cHitMan	AllocChannel	bool	uint32_t unused|void** ppChannel	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	18	0x00937d6c	cHitMan	FreeChannel	void	cIGZSnd* pChannel	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	19	0x00938bf1	cHitMan	RegisterSem	bool	cIHitSem* pSem	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	20	0x00938567	cHitMan	RemoveSem	bool	uint32_t id	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	21	0x0093899f	cHitMan	RemoveAllSems	bool		cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	22	0x00938201	cHitMan	GetSem	cIHitSem*	uint32_t id	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	23	0x009381d4	cHitMan	GetSem	bool	uint32_t id|uint32_t riid|void** ppvObj	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	24	0x009d41a9	cHitMan	NumSems	uint32_t		cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	25	0x00937e02	cHitMan	GetSemAt	cIHitSem*	uint32_t index	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	26	0x00939993	cHitMan	Random	int32_t	int32_t max|int32_t min	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	27	0x0090ce94	cHitMan	Callback	int32_t	int32_t arg1|int32_t arg2	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	28	0x009377f8	cHitMan	SetTrackFlowErrorHandler	void	cIHitMan::TrackFlowErrorHandler@4	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	29	0x00937805	cHitMan	HandleTrackFlowError	void	cIHitTrackPlayer* pPlayer|char* szMessage	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	30	0x00937bd2	cHitMan	SetRegisterVal	bool	int32_t reg|int32_t value	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	31	0x00937ba5	cHitMan	GetRegisterVal	int32_t	int32_t reg	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	32	0x00937959	cHitMan	GetSourceDataField	bool	int32_t source|int32_t field|int32_t* pValueOut	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	33	0x00937961	cHitMan	RegisterSourceDataRequestHandler	bool	cIHitAppDataRequestHandler* pHandler	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	34	0x009db37a	cHitMan	GetSourceDataRequestHandler	cIHitAppDataRequestHandler*		cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	35	0x00938af0	cHitMan	ControlGroup	int32_t	int32_t type	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	36	0x00937972	cHitMan	AddToControlGroup	bool	int32_t type|int32_t group	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	37	0x00938a26	cHitMan	SetSequenceGroupSnd	void	uint32_t group|cIGZSnd* pSnd	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	38	0x009380e3	cHitMan	GetSequenceGroupSnd	bool	uint32_t group|cIGZSnd** ppSnd	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	39	0x00938a41	cHitMan	DuckMapSetSndobPri	void	cIGZSnd const* pSnd|int32_t priority	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	40	0x00938ac6	cHitMan	DuckMapSndobPri	int32_t	cIGZSnd const* pSnd	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	41	0x00937da7	cHitMan	DuckMapMaxPri	int32_t		cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	42	0x00938492	cHitMan	DuckMapRemoveAll	void		cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	43	0x00938b50	cHitMan	AddDBSegment	void	uint32_t id|cIGZPersistDBSegment* pSegment	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	44	0x009381a4	cHitMan	FindDBSegment	bool	uint32_t id|uint32_t riid|void** ppvObj	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	45	0x00938540	cHitMan	RemoveDBSegment	void	uint32_t id	cIHitMan	re/vtables/cIHitMan.yaml	28
+0x00ad2968	46	0x00938b6e	cHitMan	AddTypeToGroupAssociation	bool	uint32_t type|uint32_t group	cIHitMan	re/vtables/cIHitMan.yaml	28

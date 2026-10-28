@@ -1,0 +1,11 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00a9325c	0	0x004e1430	cSC4AudioAEMSEventSystem	QueryInterface	bool	uint32_t riid|void** ppvObj	cISC4AEMSEvents	re/vtables/cISC4AEMSEvents.yaml	4
+0x00a9325c	1	0x004e19c0	cSC4AudioAEMSEventSystem	AddRef	uint32_t		cISC4AEMSEvents	re/vtables/cISC4AEMSEvents.yaml	4
+0x00a9325c	2	0x004e19d0	cSC4AudioAEMSEventSystem	Release	uint32_t		cISC4AEMSEvents	re/vtables/cISC4AEMSEvents.yaml	4
+0x00a9325c	3	0x004e1e10	cSC4AudioAEMSEventSystem	LoadSoundBank	bool	cISCPropertyHolder const* propertyHolder|uint32_t propertyID	cISC4AEMSEvents	re/vtables/cISC4AEMSEvents.yaml	4
+0x00a9325c	4	0x004e18b0	cSC4AudioAEMSEventSystem	UnloadSoundBank	bool	cISCPropertyHolder const* propertyHolder|uint32_t propertyID	cISC4AEMSEvents	re/vtables/cISC4AEMSEvents.yaml	4
+0x00a9325c	5	0x004e16f0	cSC4AudioAEMSEventSystem	StartSound	bool	cISC4AEMSEvents::AEMSEventType@4	cISC4AEMSEvents	re/vtables/cISC4AEMSEvents.yaml	4
+0x00a9325c	6	0x004e1740	cSC4AudioAEMSEventSystem	EndSound	bool	cISC4AEMSEvents::AEMSEventType@4	cISC4AEMSEvents	re/vtables/cISC4AEMSEvents.yaml	4
+0x00a9325c	7	0x004e1530	cSC4AudioAEMSEventSystem	SetParamVelocity	bool	SC4Percentage velocity@4	cISC4AEMSEvents	re/vtables/cISC4AEMSEvents.yaml	4
+0x00a9325c	8	0x004e15a0	cSC4AudioAEMSEventSystem	SetParamThrottle	bool	SC4Percentage throttle@4	cISC4AEMSEvents	re/vtables/cISC4AEMSEvents.yaml	4
+0x00a9325c	9	0x004e1610	cSC4AudioAEMSEventSystem	SetParamWobble	bool	SC4Percentage wobble@4	cISC4AEMSEvents	re/vtables/cISC4AEMSEvents.yaml	4

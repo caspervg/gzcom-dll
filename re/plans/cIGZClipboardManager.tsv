@@ -1,0 +1,22 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00acfee0	0	0x0092254e	cGZClipboardManager	QueryInterface	bool	uint32_t riid|void** ppvObj	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	1	0x0092259c	cGZClipboardManager	AddRef	uint32_t		cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	2	0x0092270f	cGZClipboardManager	Release	uint32_t		cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	3	0x00923367	cGZClipboardManager	Init	bool		cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	4	0x0092251a	cGZClipboardManager	Shutdown	bool		cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	5	0x009227f9	cGZClipboardManager	GetClipboardCount	uint32_t		cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	6	0x009230a8	cGZClipboardManager	GetClipboard	cIGZClipboard*	uint32_t clipboardID	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	7	0x00922974	cGZClipboardManager	GetClipboards	uint32_t	cIGZClipboard** clipboards|uint32_t& count	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	8	0x009233dc	cGZClipboardManager	AddClipboard	bool	cIGZClipboard* clipboard	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	9	0x0092314f	cGZClipboardManager	RemoveClipboard	bool	uint32_t clipboardID	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	10	0x009230e4	cGZClipboardManager	RemoveClipboard	bool	cIGZClipboard* clipboard	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	11	0x009229f3	cGZClipboardManager	IsClipboardDataTypeAvailable	bool	uint32_t dataType|uint32_t clipboardID	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	12	0x00922a66	cGZClipboardManager	GetAvailableClipboardDataTypes	uint32_t	uint32_t* dataTypes|uint32_t& count|uint32_t clipboardID	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	13	0x00922afa	cGZClipboardManager	GetClipboardWithDataTypeAvailable	uint32_t	uint32_t dataType	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	14	0x00922b4b	cGZClipboardManager	GetClipboardData	bool	uint32_t dataType|uint32_t|void** data|uint32_t clipboardID	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	15	0x00922bca	cGZClipboardManager	SetClipboardData	bool	cIGZClipboardData* data|uint8_t|uint32_t clipboardID	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	16	0x00922c3b	cGZClipboardManager	ClearClipboard	bool	uint32_t dataType|uint32_t clipboardID	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	17	0x00922d8a	cGZClipboardManager	GetClipboardText	bool	void* buffer|uint32_t& length|uint32_t|uint32_t clipboardID	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	18	0x00922ca6	cGZClipboardManager	GetClipboardText	bool	cIGZString& text|uint32_t clipboardID	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	19	0x00922e09	cGZClipboardManager	SetClipboardText	bool	void* buffer|uint32_t length|uint32_t|uint8_t|uint32_t clipboardID	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0
+0x00acfee0	20	0x00922d19	cGZClipboardManager	SetClipboardText	bool	cIGZString const& text|uint8_t|uint32_t clipboardID	cIGZClipboardManager	re/vtables/cIGZClipboardManager.yaml	0

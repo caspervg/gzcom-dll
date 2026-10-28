@@ -1,0 +1,12 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00ad2b04	0	0x0093a035	cHitDebugInfo	QueryInterface	bool	uint32_t riid|void** ppvObj	cIHitDebugInfo	re/vtables/cIHitDebugInfo.yaml	0
+0x00ad2b04	1	0x0094bc3f	cHitDebugInfo	AddRef	uint32_t		cIHitDebugInfo	re/vtables/cIHitDebugInfo.yaml	0
+0x00ad2b04	2	0x0093a2d9	cHitDebugInfo	Release	uint32_t		cIHitDebugInfo	re/vtables/cIHitDebugInfo.yaml	0
+0x00ad2b04	3	0x00949ade	cHitDebugInfo	Shutdown	bool		cIHitDebugInfo	re/vtables/cIHitDebugInfo.yaml	0
+0x00ad2b04	4	0x0093a498	cHitDebugInfo	AddSourceFile	void	cIGZString const& filename|uint8_t* pData|int32_t dataSize	cIHitDebugInfo	re/vtables/cIHitDebugInfo.yaml	0
+0x00ad2b04	5	0x0093a323	cHitDebugInfo	GetDataAddressFromFilenameAndLineNum	bool	cIGZString const& filename|int32_t lineNum|uint8_t** ppAddressOut	cIHitDebugInfo	re/vtables/cIHitDebugInfo.yaml	0
+0x00ad2b04	6	0x0093a1e5	cHitDebugInfo	GetFilenameAndLineNumFromDataAddress	bool	uint8_t* pAddress|cIGZString& filenameOut|int32_t& lineNumOut	cIHitDebugInfo	re/vtables/cIHitDebugInfo.yaml	0
+0x00ad2b04	7	0x0093a089	cHitDebugInfo	GetDataAddressFromEntryPoint	bool	uint32_t entryPoint|uint8_t** ppAddressOut	cIHitDebugInfo	re/vtables/cIHitDebugInfo.yaml	0
+0x00ad2b04	8	0x0093a0e2	cHitDebugInfo	GetHitFilenameFromEntryPoint	bool	uint32_t entryPoint|cIGZString& filenameOut	cIHitDebugInfo	re/vtables/cIHitDebugInfo.yaml	0
+0x00ad2b04	9	0x0093a588	cHitDebugInfo	LoadDebugInfo	bool	cIGZString const& filename|uint8_t* pData|int32_t dataSize	cIHitDebugInfo	re/vtables/cIHitDebugInfo.yaml	0
+0x00ad2b04	10	0x0093a395	cHitDebugInfo	LoadSymbolFile	bool	cIGZString const& filename	cIHitDebugInfo	re/vtables/cIHitDebugInfo.yaml	0

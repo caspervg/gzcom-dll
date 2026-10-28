@@ -1,0 +1,19 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00a94340	0	0x004f5210	cSC4AudioScapeManager	QueryInterface	bool	uint32_t riid|void** ppvObj	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	1	0x00524750	cSC4AudioScapeManager	AddRef	uint32_t		cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	2	0x004f5270	cSC4AudioScapeManager	Release	uint32_t		cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	3	0x004f53e0	cSC4AudioScapeManager	Init	bool		cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	4	0x004f5700	cSC4AudioScapeManager	Shutdown	bool		cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	5	0x004f64f0	cSC4AudioScapeManager	CreateLayer	bool	cIGZString const& name|uint32_t layerID|uint32_t|float	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	6	0x004f6a00	cSC4AudioScapeManager	DestroyLayer	bool	uint32_t layerID	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	7	0x004f65c0	cSC4AudioScapeManager	ClearLayer	bool	uint32_t layerID	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	8	0x004f6620	cSC4AudioScapeManager	ClearAllLayers	bool	uint32_t|bool	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	9	0x004f7850	cSC4AudioScapeManager	GetDistributedGroupPositionsAvgIntersected	bool	uint32_t layerID|uint32_t|SC4Rect<float>& rect|cS3DVector3* positions|int32_t&|int32_t&|bool	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	10	0x004f7af0	cSC4AudioScapeManager	GetDistributedGroupPositionsAvg	bool	uint32_t layerID|SC4Rect<float>& rect|cS3DVector3* positions|int32_t&|int32_t&|bool	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	11	0x004f57b0	cSC4AudioScapeManager	GetGroupPositions	bool	uint32_t layerID|cS3DVector3* positions|int32_t&|int32_t&	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	12	0x004f7300	cSC4AudioScapeManager	InsertInstance	bool	uint32_t layerID|uint32_t instanceID|bool|uint32_t|cS3DVector3 const& position|float	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	13	0x004f51e0	cSC4AudioScapeManager	InsertInstance	bool	uint32_t layerID|uint32_t instanceID|cS3DVector3 const& position|float	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	14	0x004f6b30	cSC4AudioScapeManager	RemoveInstance	bool	uint32_t layerID|uint32_t instanceID	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	15	0x004f7510	cSC4AudioScapeManager	UpdateInstance	bool	uint32_t layerID|uint32_t instanceID|cS3DVector3 const& position|float	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	16	0x004f5e30	cSC4AudioScapeManager	RegisterLayerSound	bool	uint32_t layerID|uint32_t soundID|bool|int32_t|int32_t|int32_t	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0
+0x00a94340	17	0x004f5a20	cSC4AudioScapeManager	UnregisterLayerSound	bool	uint32_t layerID|uint32_t soundID	cISC4AudioScapeManager	re/vtables/cISC4AudioScapeManager.yaml	0

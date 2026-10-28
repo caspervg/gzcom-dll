@@ -1,0 +1,34 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00ab2150	0	0x006d5d20	cSC4PathFinder	QueryInterface	bool	uint32_t riid|void** ppvObj	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	1	0x004bdf00	cSC4PathFinder	AddRef	uint32_t		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	2	0x006d61b0	cSC4PathFinder	Release	uint32_t		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	3	0x006d78b0	cSC4PathFinder	Init	bool		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	4	0x006d5d50	cSC4PathFinder	Shutdown	bool		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	5	0x006d6cf0	cSC4PathFinder	SetFlag	void	cISC4PathFinder::TripSettings flag@4	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	6	0x006d6d00	cSC4PathFinder	ClearFlag	void	cISC4PathFinder::TripSettings flag@4	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	7	0x006d6d20	cSC4PathFinder	ClearAllFlags	void		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	8	0x00407ad0	cSC4PathFinder	SetRouteInfo	void	void* routeInfo	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	9	0x006d6d30	cSC4PathFinder	SetTripDestinationFilter	void	cISC4PathFinder::TripDestinationFilter filter@4	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	10	0x006d6d40	cSC4PathFinder	SetDestinationFlag	void	cISC4PathFinder::DestinationFlag flag@4	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	11	0x006d6d60	cSC4PathFinder	ClearDestinationFlag	void	cISC4PathFinder::DestinationFlag flag@4	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	12	0x006d6d80	cSC4PathFinder	ClearAllDestinationFlags	void		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	13	0x006d6d90	cSC4PathFinder	SetTravelTypeFlag	void	cISC4TrafficSimulator::TravelTypeFlag travelTypeFlags@4|bool allowAsStartType	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	14	0x006d6db0	cSC4PathFinder	ClearTravelTypeFlag	void	cISC4TrafficSimulator::TravelTypeFlag travelTypeFlags@4	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	15	0x006d6dd0	cSC4PathFinder	ClearAllTravelTypeFlags	void		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	16	0x006d6de0	cSC4PathFinder	SetStartingCostArray	void	float* costs	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	17	0x006d6df0	cSC4PathFinder	SetMaxTripLength	void	float length	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	18	0x006d6e00	cSC4PathFinder	SetTrafficDensity	void	uint32_t density	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	19	0x006d6e10	cSC4PathFinder	SetStartRect	void	SC4Rect<int32_t> rect@16	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	20	0x006d6e40	cSC4PathFinder	SetEndRect	void	SC4Rect<int32_t> rect@16	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	21	0x006d6e70	cSC4PathFinder	SetMaxWorkTime	void	uint32_t workTime	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	22	0x006d6e80	cSC4PathFinder	Reset	void		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	23	0x006d91b0	cSC4PathFinder	FindPath	cISC4PathFinder::FindPathResult		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	24	0x00698ce0	cSC4PathFinder	GetTrafficArrived	uint32_t		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	25	0x006d6e90	cSC4PathFinder	GetTripLength	float		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	26	0x006d6030	cSC4PathFinder	GetTripLengthScaledForDisplay	float		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	27	0x006d6ea0	cSC4PathFinder	GetEndCell	void	int32_t& x|int32_t& z	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	28	0x006d6ec0	cSC4PathFinder	GetLastTravelType	uint8_t		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	29	0x006da060	cSC4PathFinder	ApplyTraffic	void	cISC4PathFinder::TrafficApplicationStyle style@4	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	30	0x006d61e0	cSC4PathFinder	WasTripReversible	bool		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	31	0x006d6730	cSC4PathFinder	ReleasePathNodes	void		cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0
+0x00ab2150	32	0x006d7070	cSC4PathFinder	GetCompressedRoute	void	SC4Vector<uint8_t>& route|uint32_t& travelTypesUsed	cISC4PathFinder	re/vtables/cISC4PathFinder.yaml	0

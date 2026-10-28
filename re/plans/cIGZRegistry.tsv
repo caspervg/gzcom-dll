@@ -1,0 +1,7 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00acfdac	0	0x00921bb0	cGZRegistry	QueryInterface	bool	uint32_t riid|void** ppvObj	cIGZRegistry	re/vtables/cIGZRegistry.yaml	0
+0x00acfdac	3	0x0092212c	cGZRegistry	Register	bool	cIGZString const& name	cIGZRegistry	re/vtables/cIGZRegistry.yaml	0
+0x00acfdac	4	0x00921d97	cGZRegistry	Unregister	bool	cIGZString const& name	cIGZRegistry	re/vtables/cIGZRegistry.yaml	0
+0x00acfdac	5	0x00921dd8	cGZRegistry	Lookup	bool	char* root|cIGZString const& key|cIGZString& valueOut	cIGZRegistry	re/vtables/cIGZRegistry.yaml	0
+0x00acfdac	6	0x00921c95	cGZRegistry	MakeRegistryName	bool	char* root|cIGZString const& category|cIGZString const& key|cIGZString& nameOut	cIGZRegistry	re/vtables/cIGZRegistry.yaml	0
+0x00acfdac	7	0x00921eb2	cGZRegistry	EnumCategory	bool	char*|cIGZRegistry::EnumCallback@4|void*	cIGZRegistry	re/vtables/cIGZRegistry.yaml	0

@@ -1,0 +1,7 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00ab8150	0	0x0079dce0	cSC4WinMapView	QueryInterface	bool	uint32_t riid|void** ppvObj	cISC4ViewManager	re/vtables/cISC4ViewManager.yaml	0
+0x00ab8150	1	0x008fb729	cSC4WinMapView	AddRef	uint32_t		cISC4ViewManager	re/vtables/cISC4ViewManager.yaml	0
+0x00ab8150	2	0x008fb72e	cSC4WinMapView	Release	uint32_t		cISC4ViewManager	re/vtables/cISC4ViewManager.yaml	0
+0x00ab8150	3	0x007a6270	cSC4WinMapView	SetBaseView	void	uint32_t viewId	cISC4ViewManager	re/vtables/cISC4ViewManager.yaml	0
+0x00ab8150	4	0x007a61e0	cSC4WinMapView	PushView	void	uint32_t viewId	cISC4ViewManager	re/vtables/cISC4ViewManager.yaml	0
+0x00ab8150	5	0x007a6220	cSC4WinMapView	PopView	void	uint32_t viewId	cISC4ViewManager	re/vtables/cISC4ViewManager.yaml	0

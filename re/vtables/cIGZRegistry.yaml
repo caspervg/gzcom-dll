@@ -1,0 +1,189 @@
+# Layout spec. Machine fields are rewritten by `vtables.py align`.
+# Put corrections in a slot's `human:` map, which align keeps.
+interface: cIGZRegistry
+gziid: '0xa237613c'
+base: cIGZUnknown
+base_slots: 3
+extent:
+  win: 8
+  win_source: primary-run
+  win_run: 8
+  mac: 8
+mac:
+  program: /Mac OS X/OldMacVersions/MacOS_x86-32-cpu0x3
+  vtable: '0x00ac3dc0'
+  implementers:
+  - class: cGZRegistry
+    base_offset: 0
+win:
+  program: /Windows/WINDOWS_SimCity 4.exe
+  qi: '0x00921bb0'
+  vftable: '0x00acfdac'
+  adjust: 0
+  pure_table: null
+notes: []
+slots:
+- win: 0
+  mac: 0
+  origin: both
+  name: QueryInterface
+  params:
+  - uint32_t
+  - void**
+  const: false
+  returns: null
+  ret_guess: bool
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 268612
+  win_impl: 9575344
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+- win: 1
+  mac: 1
+  origin: both
+  name: AddRef
+  params: []
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 0
+  ret_n: null
+  mac_impl: 268676
+  win_impl: 9607072
+  win_name: null
+  evidence:
+  - call_edges
+  status: probable
+- win: 2
+  mac: 2
+  origin: both
+  name: Release
+  params: []
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 0
+  ret_n: null
+  mac_impl: 268690
+  win_impl: 9559433
+  win_name: null
+  evidence: []
+  status: review
+- win: 3
+  mac: 3
+  origin: both
+  name: Register
+  params:
+  - cIGZString const&
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 269754
+  win_impl: 9576748
+  win_name: null
+  evidence:
+  - ret_n
+  status: confirmed
+  human:
+    returns: bool
+    note: win 0092212c (not a Ghidra function) ends MOV AL,1; RET 4.
+- win: 4
+  mac: 4
+  origin: both
+  name: Unregister
+  params:
+  - cIGZString const&
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 269224
+  win_impl: 9575831
+  win_name: null
+  evidence:
+  - ret_n
+  status: confirmed
+  human:
+    returns: bool
+    note: win ends MOV AL,1; RET 4.
+- win: 5
+  mac: 5
+  origin: both
+  name: Lookup
+  params:
+  - char*
+  - cIGZString const&
+  - cIGZString&
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: 12
+  ret_n: 12
+  mac_impl: 269314
+  win_impl: 9575896
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+    note: win returns via XOR AL,AL / MOV AL,1; RET 0xc.
+- win: 6
+  mac: 6
+  origin: both
+  name: MakeRegistryName
+  params:
+  - char*
+  - cIGZString const&
+  - cIGZString const&
+  - cIGZString&
+  const: false
+  returns: null
+  ret_guess: bool
+  param_bytes: 16
+  ret_n: 16
+  mac_impl: 269558
+  win_impl: 9575573
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+  human:
+    returns: bool
+    note: win ends MOV AL,1; RET 0x10. Mac returns param != 0.
+- win: 7
+  mac: 7
+  origin: both
+  name: EnumCategory
+  params:
+  - char*
+  - void (*)(cIGZString const&,cIGZString const&,void*)
+  - void*
+  const: false
+  returns: null
+  ret_guess: undefined4
+  param_bytes: null
+  ret_n: 12
+  mac_impl: 268826
+  win_impl: 9576114
+  win_name: null
+  evidence: []
+  status: review
+  human:
+    returns: bool
+    status: confirmed
+    note: RET 0xc matches three 4-byte params (the callback pointer is not sized by the tool). Win ends MOV AL,1. params use
+      the header typedef because check cannot declare a raw function-pointer probe argument.
+    params:
+    - char*
+    - cIGZRegistry::EnumCallback
+    - void*

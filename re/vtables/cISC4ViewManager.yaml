@@ -1,0 +1,141 @@
+# Layout spec. Machine fields are rewritten by `vtables.py align`.
+# Put corrections in a slot's `human:` map, which align keeps.
+interface: cISC4ViewManager
+gziid: '0x67c5bede'
+base: cIGZUnknown
+base_slots: 3
+extent:
+  win: 6
+  win_source: primary-run
+  win_run: 6
+  mac: 6
+mac:
+  program: /Mac OS X/OldMacVersions/MacOS_x86-32-cpu0x3
+  vtable: '0x00acd980'
+  implementers:
+  - class: cSC4WinMapView
+    base_offset: 0
+win:
+  program: /Windows/WINDOWS_SimCity 4.exe
+  qi: '0x0079dce0'
+  vftable: '0x00ab8150'
+  adjust: 0
+  pure_table: null
+notes: []
+slots:
+- win: 0
+  mac: 0
+  origin: both
+  name: QueryInterface
+  params:
+  - uint32_t
+  - void**
+  const: false
+  returns: null
+  ret_guess: uint
+  param_bytes: 8
+  ret_n: 8
+  mac_impl: 2594890
+  win_impl: 7986400
+  win_name: null
+  evidence:
+  - ret_n
+  - call_edges
+  status: confirmed
+- win: 1
+  mac: 1
+  origin: both
+  name: AddRef
+  params: []
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 0
+  ret_n: null
+  mac_impl: 2594974
+  win_impl: 9418537
+  win_name: null
+  evidence:
+  - call_edges
+  status: probable
+  human:
+    status: confirmed
+    note: thunk JMP 0x0094c47c, the shared window AddRef, matching Mac forwarding to cGZWinGen::AddRef
+- win: 2
+  mac: 2
+  origin: both
+  name: Release
+  params: []
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 0
+  ret_n: null
+  mac_impl: 2594988
+  win_impl: 9418542
+  win_name: null
+  evidence: []
+  status: review
+  human:
+    status: confirmed
+    note: thunk JMP 0x0099b7a3, the shared window Release (also called right after the AddRef in shared callers), matching
+      Mac cGZWinGen::Release
+- win: 3
+  mac: 3
+  origin: both
+  name: SetBaseView
+  params:
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 2624264
+  win_impl: 8020592
+  win_name: cSC4WinMapView::SetBaseView
+  evidence:
+  - ret_n
+  - win_name
+  status: confirmed
+  human:
+    returns: void
+- win: 4
+  mac: 4
+  origin: both
+  name: PushView
+  params:
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 2624362
+  win_impl: 8020448
+  win_name: null
+  evidence:
+  - ret_n
+  status: confirmed
+  human:
+    returns: void
+    note: Windows body inserts into the list at +0x9c8 then calls ResetDataView, same as Mac push_front
+- win: 5
+  mac: 5
+  origin: both
+  name: PopView
+  params:
+  - uint32_t
+  const: false
+  returns: null
+  ret_guess: void
+  param_bytes: 4
+  ret_n: 4
+  mac_impl: 2624288
+  win_impl: 8020512
+  win_name: null
+  evidence:
+  - ret_n
+  status: confirmed
+  human:
+    returns: void

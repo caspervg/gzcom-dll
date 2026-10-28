@@ -1,0 +1,10 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00ac1668	0	0x0082b890	cGZDrawSystem	QueryInterface	bool	uint32_t riid|void** ppvObj	cIGZDrawSystem	re/vtables/cIGZDrawSystem.yaml	0
+0x00ac1668	3	0x0082bd30	cGZDrawSystem	AddEngine	void	cIGZDrawContextEngineFactory* pFactory	cIGZDrawSystem	re/vtables/cIGZDrawSystem.yaml	0
+0x00ac1668	4	0x0082bab0	cGZDrawSystem	CreateEngine	bool	cIGZUnknown* pUnknown|cIGZDrawContextEngine** ppEngine	cIGZDrawSystem	re/vtables/cIGZDrawSystem.yaml	0
+0x00ac1668	5	0x0082b980	cGZDrawSystem	CreatePrivateBuffer	bool	cIGZBuffer** ppBuffer|int32_t width|int32_t height|cGZBufferColorType::eColorType colorType@4	cIGZDrawSystem	re/vtables/cIGZDrawSystem.yaml	0
+0x00ac1668	6	0x0082bd90	cGZDrawSystem	RegisterBufferCache	void	cIGZBufferHardwareCache* pCache	cIGZDrawSystem	re/vtables/cIGZDrawSystem.yaml	0
+0x00ac1668	7	0x0082baf0	cGZDrawSystem	UnregisterBufferCache	void	cIGZBufferHardwareCache* pCache	cIGZDrawSystem	re/vtables/cIGZDrawSystem.yaml	0
+0x00ac1668	8	0x0082bb40	cGZDrawSystem	FlushOldBufferCaches	void	uint32_t unknown	cIGZDrawSystem	re/vtables/cIGZDrawSystem.yaml	0
+0x00ac1668	9	0x0082bbb0	cGZDrawSystem	FlushBufferCaches	void		cIGZDrawSystem	re/vtables/cIGZDrawSystem.yaml	0
+0x00ac1668	10	0x0060fb80	cGZDrawSystem	GetBufferCacheClock	uint32_t		cIGZDrawSystem	re/vtables/cIGZDrawSystem.yaml	0

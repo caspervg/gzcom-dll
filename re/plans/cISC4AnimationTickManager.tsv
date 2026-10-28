@@ -1,0 +1,18 @@
+# vftable	slot	impl	class	method	returns	params	iface	spec	adjust
+0x00a86760	0	0x00447e60	cSC4AnimationTickManager	QueryInterface	bool	uint32_t riid|void** ppvObj	cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	1	0x00447e30	cSC4AnimationTickManager	AddRef	uint32_t		cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	2	0x00447e40	cSC4AnimationTickManager	Release	uint32_t		cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	3	0x00448010	cSC4AnimationTickManager	Init	bool		cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	4	0x004484d0	cSC4AnimationTickManager	Shutdown	bool		cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	5	0x00448b70	cSC4AnimationTickManager	AddTickableObject	bool	cIGZMessageTarget2*|uint32_t	cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	6	0x00448c70	cSC4AnimationTickManager	RemoveTickableObject	bool	cIGZMessageTarget2*|uint32_t	cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	7	0x00448170	cSC4AnimationTickManager	FindTickableObject	bool	cIGZMessageTarget2*|uint32_t	cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	8	0x00447fd0	cSC4AnimationTickManager	SetNewPriority	void	cIGZMessageTarget2*|uint32_t	cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	9	0x004487f0	cSC4AnimationTickManager	DoAnimationTick	uint32_t		cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	10	0x0040d390	cSC4AnimationTickManager	GetCurrentTickTime	uint32_t		cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	11	0x00447f40	cSC4AnimationTickManager	SetMinAndMaxTickTimeDeltas	void	uint32_t|uint32_t	cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	12	0x00447ee0	cSC4AnimationTickManager	PauseAnimationSystem	void	bool	cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	13	0x00447f30	cSC4AnimationTickManager	IsAnimationSystemPaused	bool		cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	14	0x00447f90	cSC4AnimationTickManager	EnableAutoStep	void	bool|uint32_t	cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	15	0x004fad10	cSC4AnimationTickManager	SetStepTickTimeDelta	void	uint32_t	cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
+0x00a86760	16	0x00447f70	cSC4AnimationTickManager	StepAnimationSystem	void		cISC4AnimationTickManager	re/vtables/cISC4AnimationTickManager.yaml	0
