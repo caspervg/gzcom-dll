@@ -77,7 +77,10 @@ int main()
 	void* object = nullptr;
 	assert(value.QueryInterface(GZIID_cIGZUnknown, &object) && object != nullptr);
 	assert(value.QueryInterface(GZIID_cIGZString, &object) && object != nullptr);
-	assert(value.QueryInterface(GZIID_cRZBaseString, &object) && object != nullptr);
+	// kRZBaseStringIID, which cRZBaseString.cpp keeps private.
+	assert(value.QueryInterface(0xab13a836, &object) && object != nullptr);
+	// Like the game's own QueryInterface, a miss returns false and leaves ppvObj alone.
+	object = nullptr;
 	assert(!value.QueryInterface(0xdeadbeef, &object) && object == nullptr);
 
 	std::printf("cRZBaseString self-check passed\n");

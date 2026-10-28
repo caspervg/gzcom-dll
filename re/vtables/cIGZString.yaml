@@ -105,7 +105,8 @@ slots:
   - ret_n
   status: probable
   human:
-    returns: uint32_t
+    returns: void
+    note: void on both builds, EAX holds leftovers only (upstream e3daf13 agrees)
 - win: 4
   mac: 3
   origin: both
@@ -125,7 +126,8 @@ slots:
   - win_name
   status: confirmed
   human:
-    returns: uint32_t
+    returns: void
+    note: void on both builds, EAX holds leftovers only (upstream e3daf13 agrees)
 - win: 5
   mac: 5
   origin: both
@@ -226,6 +228,9 @@ slots:
   status: probable
   human:
     returns: bool
+    status: confirmed
+    note: Windows slot 9 is MOV EAX,[ECX]; JMP [EAX+0x28], a wrapper into slot 10. On Mac the reference overload wraps the
+      pointer overload, so this is the reference overload
 - win: 10
   mac: 8
   origin: both
@@ -332,7 +337,8 @@ slots:
   - call_edges
   status: confirmed
   human:
-    returns: int32_t
+    returns: void
+    note: void on both builds, EAX holds leftovers only (upstream e3daf13 agrees)
 - win: 15
   mac: 15
   origin: both
@@ -352,7 +358,8 @@ slots:
   - win_name
   status: confirmed
   human:
-    returns: int32_t
+    returns: void
+    note: void on both builds, EAX holds leftovers only (upstream e3daf13 agrees)
 - win: 16
   mac: 17
   origin: both
