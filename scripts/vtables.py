@@ -508,8 +508,6 @@ def scaffold(iface):
         if name + "<" in used:
             lines.insert(lines.index(f'#include "{spec["base"]}.h"') + 1, f'#include "{inc}"')
     lines += [f"static const uint32_t GZIID_{iface} = {spec['gziid']};", "",
-              f"// Slot order verified against SimCity 4.exe 1.1.641 by scripts/vtables.py check.",
-              f"// Overloads are declared in reverse slot order because MSVC reverses them.",
               f"class {iface} : public {spec['base']}", "{", "public:"]
     for i in order:
         s = own[i]
