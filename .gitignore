@@ -34,3 +34,6 @@
 # CLion / JetBrains IDEs
 .idea/
 *.iml
+
+# Python
+__pycache__/
