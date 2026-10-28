@@ -284,20 +284,20 @@ linked into the Windows game, and `cIGZTestService` has no Mac symbols.
   `check`. `FindTickableObject` decompiles to an 8-byte return on Mac, but
   that is EDX left over from a hashtable iterator. It returns `bool`.
 - `cIGZString`, used as the fixture: the pipeline picks `cRZString`'s table
-  `00a80810` out of four that share `0090e1d1`, and agrees with
-  `scripts/check-cRZBaseString.ps1` on 26 of 28 slots.
-  - Return types: `check` flags the same four as the PS script against the
-    current header. `FromChar` (both overloads) should return `uint32_t`, and
-    `Copy` and `Resize` should return `int32_t`.
-  - Slots 9 and 10 disagree with the PS script. The PS script expects
-    `IsEqual(cIGZString const*, bool)` at 9. The structure says otherwise.
-    Windows slot 9 is `MOV EAX,[ECX]; JMP [EAX+0x28]`, a wrapper that
-    forwards to slot 10. On Mac the reference overload is the wrapper
-    (`CALL [ECX+0x20]` into the pointer overload). If the code is the same,
-    slot 9 is the reference overload and slot 10 the pointer overload. That
-    is also plain full reversal of the Mac order (pointer, reference, char),
-    the same as every other overload group in the table. The current header
-    already compiles to that order.
+  `00a80810` out of four that share `0090e1d1`. The header on master passes
+  `check` in all 28 slots.
+  - Slots 9 and 10 hold the reference and pointer `IsEqual` overloads, in
+    that order. Windows slot 9 is `MOV EAX,[ECX]; JMP [EAX+0x28]`, a wrapper
+    that forwards to slot 10. On Mac the reference overload is the wrapper
+    (`CALL [ECX+0x20]` into the pointer overload), so the shared source puts
+    the reference overload at 9. That is also plain full reversal of the Mac
+    order (pointer, reference, char), like every other overload group.
+  - `FromChar` (both), `Copy` and `Resize` return `void`. Both builds leave
+    only bookkeeping values in EAX, and upstream commit `e3daf13` made the
+    same change. `scripts/check-cRZBaseString.ps1` predated both findings and
+    now expects this layout too.
+  - The two overloads only differ for a null pointer, since a pointer and a
+    reference are passed the same way.
 - Windows has one shared pure-virtual stub at `005d4a10`, in 5673 slots and
   66 tables made only of it. Constructors do not always keep the interface's
   own store. `cRZString` keeps only the `cIGZUnknown` one.
