@@ -93,6 +93,7 @@
     <ClInclude Include="include\cIGZCanvasMessaging.h" />
     <ClInclude Include="include\cIGZCanvasW32.h" />
     <ClInclude Include="include\cIGZCheatCodeManager.h" />
+    <ClInclude Include="include\cIGZClipboardManager.h" />
     <ClInclude Include="include\cIGZCmdLine.h" />
     <ClInclude Include="include\cIGZCOM.h" />
     <ClInclude Include="include\cIGZCOMDirector.h" />
@@ -106,6 +107,7 @@
     <ClInclude Include="include\cIGZDate.h" />
     <ClInclude Include="include\cIGZDBSegmentPackedFile.h" />
     <ClInclude Include="include\cIGZDBSerialRecordAsIGZFile.h" />
+    <ClInclude Include="include\cIGZDrawSystem.h" />
     <ClInclude Include="include\cIGZExceptionNotification.h" />
     <ClInclude Include="include\cIGZFile.h" />
     <ClInclude Include="include\cIGZFileSystem.h" />
@@ -146,6 +148,7 @@
     <ClInclude Include="include\cIGZPersistResourceKeyList.h" />
     <ClInclude Include="include\cIGZPersistResourceManager.h" />
     <ClInclude Include="include\cIGZRadio.h" />
+    <ClInclude Include="include\cIGZRegistry.h" />
     <ClInclude Include="include\cIGZSndMgr.h" />
     <ClInclude Include="include\cIGZSndSys.h" />
     <ClInclude Include="include\cIGZUIScriptService.h" />
@@ -156,6 +159,7 @@
     <ClInclude Include="include\cIGZWinCombo.h" />
     <ClInclude Include="include\cIGZWinCtrlMgr.h" />
     <ClInclude Include="include\cIGZWinGen.h" />
+    <ClInclude Include="include\cIGZWinIMEServer.h" />
     <ClInclude Include="include\cIGZWinKeyAccelerator.h" />
     <ClInclude Include="include\cIGZWinKeyAcceleratorRes.h" />
     <ClInclude Include="include\cIGZWinMessageFilter.h" />
@@ -168,6 +172,10 @@
     <ClInclude Include="include\cIGZWinSpinner.h" />
     <ClInclude Include="include\cIGZWinText.h" />
     <ClInclude Include="include\cIGZWinTextEdit.h" />
+    <ClInclude Include="include\cIGZWWWSystem.h" />
+    <ClInclude Include="include\cIHitDebugInfo.h" />
+    <ClInclude Include="include\cIHitMan.h" />
+    <ClInclude Include="include\cIS3DMaterialManager.h" />
     <ClInclude Include="include\cIS3DModelInstance.h" />
     <ClInclude Include="include\cIS3DTextureBindingFactory.h" />
     <ClInclude Include="include\cISC43DRender.h" />
@@ -175,8 +183,12 @@
     <ClInclude Include="include\cISC4AdviceSubject.h" />
     <ClInclude Include="include\cISC4Advisor.h" />
     <ClInclude Include="include\cISC4AdvisorSystem.h" />
+    <ClInclude Include="include\cISC4AEMSEvents.h" />
     <ClInclude Include="include\cISC4AirportDeveloper.h" />
+    <ClInclude Include="include\cISC4AnimationTickManager.h" />
+    <ClInclude Include="include\cISC4AudioScapeManager.h" />
     <ClInclude Include="include\cISC4AuraSimulator.h" />
+    <ClInclude Include="include\cISC4AutomataController.h" />
     <ClInclude Include="include\cISC4AutomataControllerManager.h" />
     <ClInclude Include="include\cISC4AutomataManager.h" />
     <ClInclude Include="include\cISC4AutomataScriptSystem.h" />
@@ -189,6 +201,7 @@
     <ClInclude Include="include\cISC4CitySituationManager.h" />
     <ClInclude Include="include\cISC4CivicBuildingSimulator.h" />
     <ClInclude Include="include\cISC4CommercialSimulator.h" />
+    <ClInclude Include="include\cISC4COMSerializer.h" />
     <ClInclude Include="include\cISC4ConstructionOccupant.h" />
     <ClInclude Include="include\cISC4CrimeSimulator.h" />
     <ClInclude Include="include\cISC4DBSegment.h" />
@@ -252,12 +265,14 @@
     <ClInclude Include="include\cISC4NetworkManager.h" />
     <ClInclude Include="include\cISC4NetworkOccupant.h" />
     <ClInclude Include="include\cISC4NetworkTool.h" />
+    <ClInclude Include="include\cISC4NetworkToolUI.h" />
     <ClInclude Include="include\cISC4Occupant.h" />
     <ClInclude Include="include\cISC4OccupantFilter.h" />
     <ClInclude Include="include\cISC4OccupantManager.h" />
     <ClInclude Include="include\cISC4Ordinance.h" />
     <ClInclude Include="include\cISC4OrdinanceSimulator.h" />
     <ClInclude Include="include\cISC4ParkManager.h" />
+    <ClInclude Include="include\cISC4PathFinder.h" />
     <ClInclude Include="include\cISC4PlumbingSimulator.h" />
     <ClInclude Include="include\cISC4PoliceSimulator.h" />
     <ClInclude Include="include\cISC4PollutionSimulator.h" />
@@ -269,6 +284,7 @@
     <ClInclude Include="include\cISC4PropOccupant.h" />
     <ClInclude Include="include\cISC4PropOccupantTerrainDecal.h" />
     <ClInclude Include="include\cISC4PropOccupantVisualEffect.h" />
+    <ClInclude Include="include\cISC4PropRequester.h" />
     <ClInclude Include="include\cISC4PylonOccupant.h" />
     <ClInclude Include="include\cISC4Region.h" />
     <ClInclude Include="include\cISC4RegionalCity.h" />
@@ -283,10 +299,12 @@
     <ClInclude Include="include\cISC4TutorialSystem.h" />
     <ClInclude Include="include\cISC4View3DWin.h" />
     <ClInclude Include="include\cISC4ViewInputControl.h" />
+    <ClInclude Include="include\cISC4ViewManager.h" />
     <ClInclude Include="include\cISC4VisualEffect.h" />
     <ClInclude Include="include\cISC4WeatherSimulator.h" />
     <ClInclude Include="include\cISC4ZoneDeveloper.h" />
     <ClInclude Include="include\cISC4ZoneManager.h" />
+    <ClInclude Include="include\cISCExemplarCache.h" />
     <ClInclude Include="include\cISCExemplarPropertyHolder.h" />
     <ClInclude Include="include\cISCLua.h" />
     <ClInclude Include="include\cISCProperty.h" />
@@ -343,6 +361,7 @@
     <ClInclude Include="include\PersistResourceKeyFilterByTypeAndInstance.h" />
     <ClInclude Include="include\SC4AppPreferences.h" />
     <ClInclude Include="include\SC4AudioPreferences.h" />
+    <ClInclude Include="include\SC4AutomataTemplates.h" />
     <ClInclude Include="include\SC4CellRegion.h" />
     <ClInclude Include="include\SC4DebugPreferences.h" />
     <ClInclude Include="include\SC4GameOptionPreferences.h" />
@@ -358,6 +377,7 @@
     <ClInclude Include="include\SC4SimulatorPreferences.h" />
     <ClInclude Include="include\SC4String.h" />
     <ClInclude Include="include\SC4TipOfTheDayPreferences.h" />
+    <ClInclude Include="include\SC4Tree.h" />
     <ClInclude Include="include\SC4TutorialPreferences.h" />
     <ClInclude Include="include\SC4TutorialPreferences2.h" />
     <ClInclude Include="include\SC4UI.h" />
